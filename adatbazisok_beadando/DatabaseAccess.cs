@@ -21,6 +21,11 @@ namespace adatbazisok_beadando
             };
         }
 
+        public static void ExecuteInsert(string sql)
+        {
+
+        }
+
         public static Dictionary<int, List<string>> ExcecuteRead(string sql)
         {
             var connection = CreateConnection();
@@ -48,6 +53,10 @@ namespace adatbazisok_beadando
                         else if (schema[i].DataTypeName == "DATE" || schema[i].DataTypeName == "DATETIME")
                         {
                             temp.Add(reader.GetDateTime(i).ToString());
+                        }
+                        else if(schema[i].DataTypeName == "FLOAT")
+                        {
+                            temp.Add(reader.GetFloat(i).ToString());
                         }
                     }
                     result.Add(reader.Depth, temp);

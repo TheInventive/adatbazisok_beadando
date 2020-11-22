@@ -139,12 +139,14 @@
             this.számlákMutatásaToolStripMenuItem.Name = "számlákMutatásaToolStripMenuItem";
             this.számlákMutatásaToolStripMenuItem.Size = new System.Drawing.Size(143, 24);
             this.számlákMutatásaToolStripMenuItem.Text = "Számlák mutatása";
+            this.számlákMutatásaToolStripMenuItem.Click += new System.EventHandler(this.SzámlákMutatásaToolStripMenuItem_Click);
             // 
             // bankkártyákMutatásaToolStripMenuItem
             // 
             this.bankkártyákMutatásaToolStripMenuItem.Name = "bankkártyákMutatásaToolStripMenuItem";
             this.bankkártyákMutatásaToolStripMenuItem.Size = new System.Drawing.Size(167, 24);
             this.bankkártyákMutatásaToolStripMenuItem.Text = "Bankkártyák mutatása";
+            this.bankkártyákMutatásaToolStripMenuItem.Click += new System.EventHandler(this.bankkártyákMutatásaToolStripMenuItem_Click);
             // 
             // Form1
             // 

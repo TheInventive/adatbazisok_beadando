@@ -48,5 +48,17 @@ namespace adatbazisok_beadando
             var reader = DatabaseAccess.ExcecuteRead("SELECT * from átutalás");
             dataGridView1.InsertData(reader, MediaType.Atutalas);
         }
+
+        private void SzámlákMutatásaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var reader = DatabaseAccess.ExcecuteRead("SELECT * from számla");
+            dataGridView1.InsertData(reader, MediaType.Szamla);
+        }
+
+        private void bankkártyákMutatásaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var reader = DatabaseAccess.ExcecuteRead("SELECT * from bankkártya");
+            dataGridView1.InsertData(reader, MediaType.Bankkartya);
+        }
     }
 }
