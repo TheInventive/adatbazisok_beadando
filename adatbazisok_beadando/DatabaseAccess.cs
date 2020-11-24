@@ -37,6 +37,7 @@ namespace adatbazisok_beadando
             if (reader.HasRows)
             {
                 var schema = reader.GetColumnSchema();
+                int counter = 0;
                 while (reader.Read())
                 {
                     var temp = new List<string>();
@@ -58,8 +59,12 @@ namespace adatbazisok_beadando
                         {
                             temp.Add(reader.GetFloat(i).ToString());
                         }
+                        else if (schema[i].DataTypeName == "DOUBLE")
+                        {
+                            temp.Add(reader.GetDouble(i).ToString());
+                        }
                     }
-                    result.Add(reader.Depth, temp);
+                    result.Add(counter++, temp);
                 }
             }
             else
