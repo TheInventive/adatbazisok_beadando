@@ -11,27 +11,6 @@ namespace adatbazisok_beadando
             InitializeComponent();
         }
 
-        private void UgyfelMegjelenitese(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -59,6 +38,12 @@ namespace adatbazisok_beadando
         {
             var reader = DatabaseAccess.ExcecuteRead("SELECT * from bankkártya");
             dataGridView1.InsertData(reader, MediaType.Bankkartya);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var addData = new AddDataForm();
+            addData.ShowDialog();
         }
     }
 }

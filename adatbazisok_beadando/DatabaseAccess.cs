@@ -23,7 +23,11 @@ namespace adatbazisok_beadando
 
         public static void ExecuteInsert(string sql)
         {
-
+            var connection = CreateConnection();
+            var command = CreateCommand(sql, connection);
+            connection.Open();
+            command.ExecuteNonQuery();
+            connection.Close();
         }
 
         public static Dictionary<int, List<string>> ExcecuteRead(string sql)
