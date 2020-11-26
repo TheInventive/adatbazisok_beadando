@@ -282,7 +282,6 @@ namespace adatbazisok_beadando
             this.Controls.Add(this.keresztnev);
             this.Name = "AddUgyfelForm";
             this.Text = "AddDataForm";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddUgyfelForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

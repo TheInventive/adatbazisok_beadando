@@ -42,11 +42,6 @@ namespace adatbazisok_beadando
             anyjaLeanykoriNeve.Clear();
         }
 
-        private void AddUgyfelForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-        }
-
         private void SendAndClose(object sender, EventArgs e)
         {
             SendData(sender, e);

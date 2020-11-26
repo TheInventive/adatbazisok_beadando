@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace adatbazisok_beadando.Forms
@@ -19,7 +12,17 @@ namespace adatbazisok_beadando.Forms
 
         private void SendData(object sender, EventArgs e)
         {
+            var query = "INSERT INTO bankkártya " +
+                "VALUES ('"
+                + bankkartyaszam.Text + "','"
+                + lejarat.Value.ToString("yyyy-MM-dd") + "','"
+                + megerositoCod.Text + "','"
+                + tipus.Text + "','"
+                + limit.Text + "','"
+                + bankszamlaszam.Text
+                + "');";
 
+            DatabaseAccess.ExecuteInsert(query);
         }
     }
 }
