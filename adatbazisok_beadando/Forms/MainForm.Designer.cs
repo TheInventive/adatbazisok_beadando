@@ -45,6 +45,7 @@
             this.felhasználókNövekedéseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.torlesButton = new System.Windows.Forms.Button();
             this.modositasButton = new System.Windows.Forms.Button();
+            this.sqlLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -57,7 +58,7 @@
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 28);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 30);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -76,7 +77,7 @@
             this.grafikonMutatásaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1690, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1690, 30);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -88,7 +89,7 @@
             this.számlákMutatásaToolStripMenuItem1,
             this.bankkártyákMutatásaToolStripMenuItem1});
             this.átutalásokMutatásaToolStripMenuItem.Name = "átutalásokMutatásaToolStripMenuItem";
-            this.átutalásokMutatásaToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
+            this.átutalásokMutatásaToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
             this.átutalásokMutatásaToolStripMenuItem.Text = "Adatok mutatása";
             // 
             // átutalásaokMutatásaToolStripMenuItem
@@ -127,7 +128,7 @@
             this.számlaHozzáadásaToolStripMenuItem,
             this.bankkártyaHozzáadásaToolStripMenuItem});
             this.adatokHozzáadásaToolStripMenuItem.Name = "adatokHozzáadásaToolStripMenuItem";
-            this.adatokHozzáadásaToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
+            this.adatokHozzáadásaToolStripMenuItem.Size = new System.Drawing.Size(153, 26);
             this.adatokHozzáadásaToolStripMenuItem.Text = "Adatok hozzáadása";
             // 
             // átutalásHozzáadásaToolStripMenuItem
@@ -164,7 +165,7 @@
             this.tranzakciókToolStripMenuItem,
             this.felhasználókNövekedéseToolStripMenuItem});
             this.grafikonMutatásaToolStripMenuItem.Name = "grafikonMutatásaToolStripMenuItem";
-            this.grafikonMutatásaToolStripMenuItem.Size = new System.Drawing.Size(144, 24);
+            this.grafikonMutatásaToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.grafikonMutatásaToolStripMenuItem.Text = "Grafikon mutatása";
             // 
             // tranzakciókToolStripMenuItem
@@ -183,7 +184,7 @@
             // 
             this.torlesButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.torlesButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.torlesButton.Location = new System.Drawing.Point(0, 483);
+            this.torlesButton.Location = new System.Drawing.Point(0, 485);
             this.torlesButton.Name = "torlesButton";
             this.torlesButton.Size = new System.Drawing.Size(1690, 35);
             this.torlesButton.TabIndex = 7;
@@ -195,7 +196,7 @@
             // 
             this.modositasButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.modositasButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.modositasButton.Location = new System.Drawing.Point(0, 518);
+            this.modositasButton.Location = new System.Drawing.Point(0, 520);
             this.modositasButton.Name = "modositasButton";
             this.modositasButton.Size = new System.Drawing.Size(1690, 35);
             this.modositasButton.TabIndex = 8;
@@ -203,13 +204,25 @@
             this.modositasButton.UseVisualStyleBackColor = true;
             this.modositasButton.Click += new System.EventHandler(this.ModositasButton_Click);
             // 
+            // sqlLabel
+            // 
+            this.sqlLabel.AutoSize = true;
+            this.sqlLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sqlLabel.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.sqlLabel.Location = new System.Drawing.Point(0, 555);
+            this.sqlLabel.Name = "sqlLabel";
+            this.sqlLabel.Size = new System.Drawing.Size(0, 27);
+            this.sqlLabel.TabIndex = 10;
+            this.sqlLabel.TextChanged += new System.EventHandler(this.SqlLabel_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1690, 594);
+            this.ClientSize = new System.Drawing.Size(1690, 657);
+            this.Controls.Add(this.sqlLabel);
             this.Controls.Add(this.modositasButton);
             this.Controls.Add(this.torlesButton);
             this.Controls.Add(this.dataGridView1);
@@ -244,6 +257,7 @@
         private System.Windows.Forms.ToolStripMenuItem grafikonMutatásaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tranzakciókToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem felhasználókNövekedéseToolStripMenuItem;
+        private System.Windows.Forms.Label sqlLabel;
     }
 }
 

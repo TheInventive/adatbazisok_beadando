@@ -1,4 +1,5 @@
-﻿using MySqlConnector;
+﻿using adatbazisok_beadando.Model;
+using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -106,6 +107,52 @@ namespace adatbazisok_beadando
             }
             connection.Close();
             return result;
+        }
+
+        public static string ExecuteDelete(string key, MediaType? type)
+        {
+            string sql = "";
+            switch (type)
+            {
+                case MediaType.Atutalas:
+                    sql = $"DELETE FROM `átutalás` WHERE `Utalás azonosító` = {key}";
+                    break;
+                case MediaType.Bankkartya:
+                    sql = $"DELETE FROM `bankkártya` WHERE `kártyaszám` = {key}";
+                    break;
+                case MediaType.Szamla:
+                    sql = $"DELETE FROM `számla` WHERE `Számlaszám` = {key}";
+                    break;
+                case MediaType.Ugyfel:
+                    sql = $"DELETE FROM `ügyfél` WHERE `Ügyfél azonosító` = {key}";
+                    break;
+            }
+
+            var connection = CreateConnection();
+            var command = CreateCommand(sql, connection);
+            try
+            {
+                connection.Open();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Az adatbázis nem elérhető.");
+                connection.Close();
+            }
+
+
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("A törlés nem lehetséges: FOREIGN KEY CONSTRAINT");
+                connection.Close();
+            }
+
+            connection.Close();
+            return sql;
         }
     }
 }
