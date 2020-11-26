@@ -42,6 +42,8 @@ namespace adatbazisok_beadando.Forms
             this.megerositoCod = new System.Windows.Forms.TextBox();
             this.bankszamlaszam = new System.Windows.Forms.TextBox();
             this.kuldes = new System.Windows.Forms.Button();
+            this.bankszamaszamListbox = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // bankkartyaszam
@@ -54,7 +56,7 @@ namespace adatbazisok_beadando.Forms
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(933, 25);
+            this.label17.Location = new System.Drawing.Point(15, 101);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(117, 17);
             this.label17.TabIndex = 49;
@@ -63,7 +65,7 @@ namespace adatbazisok_beadando.Forms
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(746, 25);
+            this.label16.Location = new System.Drawing.Point(450, 108);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(37, 17);
             this.label16.TabIndex = 48;
@@ -72,7 +74,7 @@ namespace adatbazisok_beadando.Forms
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(607, 25);
+            this.label15.Location = new System.Drawing.Point(695, 108);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(40, 17);
             this.label15.TabIndex = 47;
@@ -114,14 +116,14 @@ namespace adatbazisok_beadando.Forms
             // 
             // tipus
             // 
-            this.tipus.Location = new System.Drawing.Point(598, 45);
+            this.tipus.Location = new System.Drawing.Point(687, 129);
             this.tipus.Name = "tipus";
             this.tipus.Size = new System.Drawing.Size(131, 22);
             this.tipus.TabIndex = 42;
             // 
             // limit
             // 
-            this.limit.Location = new System.Drawing.Point(749, 45);
+            this.limit.Location = new System.Drawing.Point(453, 128);
             this.limit.Name = "limit";
             this.limit.Size = new System.Drawing.Size(178, 22);
             this.limit.TabIndex = 41;
@@ -135,14 +137,14 @@ namespace adatbazisok_beadando.Forms
             // 
             // bankszamlaszam
             // 
-            this.bankszamlaszam.Location = new System.Drawing.Point(933, 45);
+            this.bankszamlaszam.Location = new System.Drawing.Point(18, 128);
             this.bankszamlaszam.Name = "bankszamlaszam";
             this.bankszamlaszam.Size = new System.Drawing.Size(380, 22);
             this.bankszamlaszam.TabIndex = 39;
             // 
             // kuldes
             // 
-            this.kuldes.Location = new System.Drawing.Point(522, 142);
+            this.kuldes.Location = new System.Drawing.Point(436, 203);
             this.kuldes.Name = "kuldes";
             this.kuldes.Size = new System.Drawing.Size(195, 37);
             this.kuldes.TabIndex = 50;
@@ -150,11 +152,33 @@ namespace adatbazisok_beadando.Forms
             this.kuldes.UseVisualStyleBackColor = true;
             this.kuldes.Click += new System.EventHandler(this.SendData);
             // 
+            // bankszamaszamListbox
+            // 
+            this.bankszamaszamListbox.FormattingEnabled = true;
+            this.bankszamaszamListbox.ItemHeight = 16;
+            this.bankszamaszamListbox.Location = new System.Drawing.Point(18, 156);
+            this.bankszamaszamListbox.Name = "bankszamaszamListbox";
+            this.bankszamaszamListbox.Size = new System.Drawing.Size(380, 84);
+            this.bankszamaszamListbox.TabIndex = 51;
+            this.bankszamaszamListbox.SelectedIndexChanged += new System.EventHandler(this.BankszamaszamListbox_SelectedIndexChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(650, 203);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(195, 37);
+            this.button1.TabIndex = 52;
+            this.button1.Text = "Küldés és bezárás";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.SendAndClose);
+            // 
             // AddBankkartyaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1409, 240);
+            this.ClientSize = new System.Drawing.Size(873, 330);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.bankszamaszamListbox);
             this.Controls.Add(this.kuldes);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
@@ -170,6 +194,7 @@ namespace adatbazisok_beadando.Forms
             this.Controls.Add(this.bankkartyaszam);
             this.Name = "AddBankkartyaForm";
             this.Text = "AddBankkartyaForm";
+            this.Load += new System.EventHandler(this.AddBankkartyaForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,5 +215,7 @@ namespace adatbazisok_beadando.Forms
         private System.Windows.Forms.TextBox megerositoCod;
         private System.Windows.Forms.TextBox bankszamlaszam;
         private System.Windows.Forms.Button kuldes;
+        private System.Windows.Forms.ListBox bankszamaszamListbox;
+        private System.Windows.Forms.Button button1;
     }
 }

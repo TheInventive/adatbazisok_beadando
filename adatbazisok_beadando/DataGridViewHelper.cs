@@ -27,10 +27,9 @@ namespace adatbazisok_beadando
 
         }
 
-        private static List<Ugyfel> GetUgyfel(Dictionary<int, List<string>> values)
+        public static List<Ugyfel> GetUgyfel(Dictionary<int, List<string>> values)
         {
             var data = new List<Ugyfel>();
-            if (values.Count == 0) return null;
             for (int i = 0; i < values.Count; i++)
             {
                 values.TryGetValue(i, out List<string> row);
@@ -39,7 +38,7 @@ namespace adatbazisok_beadando
             return data;
         }
 
-        private static List<Atutalas> GetAtutalas(Dictionary<int, List<string>> values)
+        public static List<Atutalas> GetAtutalas(Dictionary<int, List<string>> values)
         {
             var data = new List<Atutalas>();
             if (values.Count == 0) return null;
@@ -51,7 +50,7 @@ namespace adatbazisok_beadando
             return data;
         }
 
-        private static List<Bankkartya> GetBankkartya(Dictionary<int, List<string>> values)
+        public static List<Bankkartya> GetBankkartya(Dictionary<int, List<string>> values)
         {
             var data = new List<Bankkartya>();
             if (values.Count == 0) return null;
@@ -63,7 +62,7 @@ namespace adatbazisok_beadando
             return data;
         }
 
-        private static List<Szamla> GetSzamla(Dictionary<int, List<string>> values)
+        public static List<Szamla> GetSzamla(Dictionary<int, List<string>> values)
         {
             var data = new List<Szamla>();
             if (values.Count == 0) return null;

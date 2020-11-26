@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using adatbazisok_beadando.Forms;
 using adatbazisok_beadando.Model;
+using System.Linq;
 
 namespace adatbazisok_beadando
 {
@@ -10,11 +11,6 @@ namespace adatbazisok_beadando
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void ShowAtutalasok(object sender, EventArgs e)
@@ -63,6 +59,16 @@ namespace adatbazisok_beadando
         {
             new AddBankkartyaForm().ShowDialog();
             ShowBankkartyak(null,null);
+        }
+
+        private void TorlesButton_Click(object sender, EventArgs e)
+        {
+            var data = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+        }
+
+        private void ModositasButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

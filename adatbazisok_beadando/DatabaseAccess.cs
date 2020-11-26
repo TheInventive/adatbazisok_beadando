@@ -22,7 +22,7 @@ namespace adatbazisok_beadando
             };
         }
 
-        public static void ExecuteInsert(string sql)
+        public static bool ExecuteInsert(string sql)
         {
             var connection = CreateConnection();
             var command = CreateCommand(sql, connection);
@@ -34,7 +34,7 @@ namespace adatbazisok_beadando
             {
                 MessageBox.Show("Az adatbázis nem elérhető.");
                 connection.Close();
-                return;
+                return false;
             }
             
 
@@ -46,10 +46,11 @@ namespace adatbazisok_beadando
             {
                 MessageBox.Show("Az adatok nem helyesen lettek megadva!");
                 connection.Close();
-                return;
+                return false;
             }
 
             connection.Close();
+            return true;
         }
 
         public static Dictionary<int, List<string>> ExcecuteRead(string sql)
@@ -102,10 +103,6 @@ namespace adatbazisok_beadando
                     }
                     result.Add(counter++, temp);
                 }
-            }
-            else
-            {
-                MessageBox.Show("No rows found.");
             }
             connection.Close();
             return result;

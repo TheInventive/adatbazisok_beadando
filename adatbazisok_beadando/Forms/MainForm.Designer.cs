@@ -40,11 +40,11 @@
             this.ügyfélHozzáadásaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.számlaHozzáadásaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bankkártyaHozzáadásaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.torlesButton = new System.Windows.Forms.Button();
-            this.modositasButton = new System.Windows.Forms.Button();
             this.grafikonMutatásaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tranzakciókToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.felhasználókNövekedéseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.torlesButton = new System.Windows.Forms.Button();
+            this.modositasButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -53,15 +53,19 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 77);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 28);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1666, 455);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(1690, 455);
             this.dataGridView1.TabIndex = 5;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // menuStrip1
             // 
@@ -72,7 +76,7 @@
             this.grafikonMutatásaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1690, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1690, 28);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -84,7 +88,7 @@
             this.számlákMutatásaToolStripMenuItem1,
             this.bankkártyákMutatásaToolStripMenuItem1});
             this.átutalásokMutatásaToolStripMenuItem.Name = "átutalásokMutatásaToolStripMenuItem";
-            this.átutalásokMutatásaToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
+            this.átutalásokMutatásaToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.átutalásokMutatásaToolStripMenuItem.Text = "Adatok mutatása";
             // 
             // átutalásaokMutatásaToolStripMenuItem
@@ -123,7 +127,7 @@
             this.számlaHozzáadásaToolStripMenuItem,
             this.bankkártyaHozzáadásaToolStripMenuItem});
             this.adatokHozzáadásaToolStripMenuItem.Name = "adatokHozzáadásaToolStripMenuItem";
-            this.adatokHozzáadásaToolStripMenuItem.Size = new System.Drawing.Size(153, 26);
+            this.adatokHozzáadásaToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
             this.adatokHozzáadásaToolStripMenuItem.Text = "Adatok hozzáadása";
             // 
             // átutalásHozzáadásaToolStripMenuItem
@@ -154,31 +158,13 @@
             this.bankkártyaHozzáadásaToolStripMenuItem.Text = "Bankkártya hozzáadása";
             this.bankkártyaHozzáadásaToolStripMenuItem.Click += new System.EventHandler(this.AddBankkartya);
             // 
-            // torlesButton
-            // 
-            this.torlesButton.Location = new System.Drawing.Point(12, 547);
-            this.torlesButton.Name = "torlesButton";
-            this.torlesButton.Size = new System.Drawing.Size(199, 35);
-            this.torlesButton.TabIndex = 7;
-            this.torlesButton.Text = "Kijelölt sor törlése";
-            this.torlesButton.UseVisualStyleBackColor = true;
-            // 
-            // modositasButton
-            // 
-            this.modositasButton.Location = new System.Drawing.Point(217, 547);
-            this.modositasButton.Name = "modositasButton";
-            this.modositasButton.Size = new System.Drawing.Size(208, 35);
-            this.modositasButton.TabIndex = 8;
-            this.modositasButton.Text = "Kijelölt sor módosítása";
-            this.modositasButton.UseVisualStyleBackColor = true;
-            // 
             // grafikonMutatásaToolStripMenuItem
             // 
             this.grafikonMutatásaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tranzakciókToolStripMenuItem,
             this.felhasználókNövekedéseToolStripMenuItem});
             this.grafikonMutatásaToolStripMenuItem.Name = "grafikonMutatásaToolStripMenuItem";
-            this.grafikonMutatásaToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.grafikonMutatásaToolStripMenuItem.Size = new System.Drawing.Size(144, 24);
             this.grafikonMutatásaToolStripMenuItem.Text = "Grafikon mutatása";
             // 
             // tranzakciókToolStripMenuItem
@@ -193,10 +179,36 @@
             this.felhasználókNövekedéseToolStripMenuItem.Size = new System.Drawing.Size(258, 26);
             this.felhasználókNövekedéseToolStripMenuItem.Text = "Felhasználók növekedése";
             // 
+            // torlesButton
+            // 
+            this.torlesButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.torlesButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.torlesButton.Location = new System.Drawing.Point(0, 483);
+            this.torlesButton.Name = "torlesButton";
+            this.torlesButton.Size = new System.Drawing.Size(1690, 35);
+            this.torlesButton.TabIndex = 7;
+            this.torlesButton.Text = "Kijelölt sor törlése";
+            this.torlesButton.UseVisualStyleBackColor = true;
+            this.torlesButton.Click += new System.EventHandler(this.TorlesButton_Click);
+            // 
+            // modositasButton
+            // 
+            this.modositasButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.modositasButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.modositasButton.Location = new System.Drawing.Point(0, 518);
+            this.modositasButton.Name = "modositasButton";
+            this.modositasButton.Size = new System.Drawing.Size(1690, 35);
+            this.modositasButton.TabIndex = 8;
+            this.modositasButton.Text = "Kijelölt sor módosítása";
+            this.modositasButton.UseVisualStyleBackColor = true;
+            this.modositasButton.Click += new System.EventHandler(this.ModositasButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1690, 594);
             this.Controls.Add(this.modositasButton);
             this.Controls.Add(this.torlesButton);
@@ -205,6 +217,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Bank";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

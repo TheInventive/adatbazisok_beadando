@@ -21,7 +21,24 @@ namespace adatbazisok_beadando.Forms
                 + szerzodesDatuma.Value.ToString("yyyy-MM-dd")
                 + "');";
 
-            DatabaseAccess.ExecuteInsert(query);
+            if (DatabaseAccess.ExecuteInsert(query))
+            {
+                szamlaszam.Clear();
+                valuta.Clear();
+                penz.Clear();
+                szerzodesDatuma.ResetText();
+            }
+        }
+
+        private void ValutaListbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            valuta.Text = ((ListBox)sender).SelectedItem.ToString();
+        }
+
+        private void SendAndClose(object sender, EventArgs e)
+        {
+            SendData(sender, e);
+            Close();
         }
     }
 }

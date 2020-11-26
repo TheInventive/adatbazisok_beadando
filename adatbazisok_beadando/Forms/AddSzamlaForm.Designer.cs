@@ -38,6 +38,8 @@ namespace adatbazisok_beadando.Forms
             this.szerzodesDatuma = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.kuldes = new System.Windows.Forms.Button();
+            this.valutaListbox = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // szamlaszam
@@ -49,14 +51,14 @@ namespace adatbazisok_beadando.Forms
             // 
             // valuta
             // 
-            this.valuta.Location = new System.Drawing.Point(326, 61);
+            this.valuta.Location = new System.Drawing.Point(12, 121);
             this.valuta.Name = "valuta";
             this.valuta.Size = new System.Drawing.Size(100, 22);
             this.valuta.TabIndex = 2;
             // 
             // penz
             // 
-            this.penz.Location = new System.Drawing.Point(432, 61);
+            this.penz.Location = new System.Drawing.Point(145, 121);
             this.penz.Name = "penz";
             this.penz.Size = new System.Drawing.Size(221, 22);
             this.penz.TabIndex = 3;
@@ -73,7 +75,7 @@ namespace adatbazisok_beadando.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(326, 41);
+            this.label1.Location = new System.Drawing.Point(12, 101);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 17);
             this.label1.TabIndex = 46;
@@ -82,7 +84,7 @@ namespace adatbazisok_beadando.Forms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(438, 41);
+            this.label2.Location = new System.Drawing.Point(142, 101);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 17);
             this.label2.TabIndex = 47;
@@ -90,7 +92,7 @@ namespace adatbazisok_beadando.Forms
             // 
             // szerzodesDatuma
             // 
-            this.szerzodesDatuma.Location = new System.Drawing.Point(659, 61);
+            this.szerzodesDatuma.Location = new System.Drawing.Point(364, 59);
             this.szerzodesDatuma.Name = "szerzodesDatuma";
             this.szerzodesDatuma.Size = new System.Drawing.Size(200, 22);
             this.szerzodesDatuma.TabIndex = 48;
@@ -98,7 +100,7 @@ namespace adatbazisok_beadando.Forms
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(656, 41);
+            this.label3.Location = new System.Drawing.Point(361, 39);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(126, 17);
             this.label3.TabIndex = 49;
@@ -106,7 +108,7 @@ namespace adatbazisok_beadando.Forms
             // 
             // kuldes
             // 
-            this.kuldes.Location = new System.Drawing.Point(358, 158);
+            this.kuldes.Location = new System.Drawing.Point(394, 111);
             this.kuldes.Name = "kuldes";
             this.kuldes.Size = new System.Drawing.Size(170, 42);
             this.kuldes.TabIndex = 50;
@@ -114,11 +116,37 @@ namespace adatbazisok_beadando.Forms
             this.kuldes.UseVisualStyleBackColor = true;
             this.kuldes.Click += new System.EventHandler(this.SendData);
             // 
+            // valutaListbox
+            // 
+            this.valutaListbox.FormattingEnabled = true;
+            this.valutaListbox.ItemHeight = 16;
+            this.valutaListbox.Items.AddRange(new object[] {
+            "HUF",
+            "USD",
+            "EUR"});
+            this.valutaListbox.Location = new System.Drawing.Point(12, 149);
+            this.valutaListbox.Name = "valutaListbox";
+            this.valutaListbox.Size = new System.Drawing.Size(100, 84);
+            this.valutaListbox.TabIndex = 51;
+            this.valutaListbox.SelectedIndexChanged += new System.EventHandler(this.ValutaListbox_SelectedIndexChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(394, 170);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(170, 42);
+            this.button1.TabIndex = 52;
+            this.button1.Text = "Küldés és bezárás";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.SendAndClose);
+            // 
             // AddSzamlaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(927, 286);
+            this.ClientSize = new System.Drawing.Size(654, 290);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.valutaListbox);
             this.Controls.Add(this.kuldes);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.szerzodesDatuma);
@@ -146,5 +174,7 @@ namespace adatbazisok_beadando.Forms
         private System.Windows.Forms.DateTimePicker szerzodesDatuma;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button kuldes;
+        private System.Windows.Forms.ListBox valutaListbox;
+        private System.Windows.Forms.Button button1;
     }
 }

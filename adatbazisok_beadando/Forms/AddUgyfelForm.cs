@@ -28,24 +28,26 @@ namespace adatbazisok_beadando
                 + szuletesiDatum.Value.ToString("yyyy-MM-dd") + "','"
                 + anyjaLeanykoriNeve.Text + "');";
 
-            DatabaseAccess.ExecuteInsert(query);
-            keresztnev.Clear();
-            vezeteknev.Clear();
-            megszolitas.Clear();
-            telefonszam.Clear();
-            emailcim.Clear();
-            lakcim.Clear();
-            szemelyiIgazolvanySzam.Clear();
-            adoazonositoJel.Clear();
-            allampolgarsag.Clear();
-            szuletesiDatum.ResetText();
-            anyjaLeanykoriNeve.Clear();
+            if (DatabaseAccess.ExecuteInsert(query))
+            {
+                keresztnev.Clear();
+                vezeteknev.Clear();
+                megszolitas.Clear();
+                telefonszam.Clear();
+                emailcim.Clear();
+                lakcim.Clear();
+                szemelyiIgazolvanySzam.Clear();
+                adoazonositoJel.Clear();
+                allampolgarsag.Clear();
+                szuletesiDatum.ResetText();
+                anyjaLeanykoriNeve.Clear();
+            }
         }
 
         private void SendAndClose(object sender, EventArgs e)
         {
             SendData(sender, e);
-            this.Close();
+            Close();
         }
     }
 }

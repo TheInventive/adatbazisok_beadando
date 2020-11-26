@@ -20,19 +20,24 @@ namespace adatbazisok_beadando.Model
 
         public Ugyfel(List<string> values)
         {
-            if (values.Count != 12) return;
             UgyfelId = int.Parse(values[0]);
             Keresztnev = values[1];
             Utonev = values[2];
-            Telefonszam = values[3];
-            Megszolitas = values[4];
-            SzemelyiIgazolvanySzam = values[5];
-            AdoazonositoJel = values[6];
-            EmailCim = values[7];
-            Lakcim = values[8];
+            Megszolitas = values[3];
+            if (values.Count == 4) return;
+            Telefonszam = values[4];
+            Lakcim = values[5];
+            SzemelyiIgazolvanySzam = values[6];
+            AdoazonositoJel = values[7];
+            Allampolgarsag = values[8];
             SzuletesiDatum = DateTime.Parse(values[9]);
             AnyjaLeanykoriNeve = values[10];
-            Allampolgarsag = values[11];
+            EmailCim = values[11];
+        }
+
+        public override string ToString()
+        {
+            return $"{Megszolitas} {Keresztnev} {Utonev} {UgyfelId}";
         }
     }
 }
