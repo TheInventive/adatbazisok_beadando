@@ -1,8 +1,7 @@
-﻿using System;
-using System.Linq;
-using System.Windows.Forms;
-using adatbazisok_beadando.Forms;
+﻿using adatbazisok_beadando.Forms;
 using adatbazisok_beadando.Model;
+using System;
+using System.Windows.Forms;
 
 namespace adatbazisok_beadando
 {
@@ -117,7 +116,7 @@ namespace adatbazisok_beadando
             {
                 var lastText = ((Label)sender).Text.Split('\n');
                 ((Label)sender).Text = string.Empty;
-                ((Label)sender).Text = lastText[lastText.Length-1];
+                ((Label)sender).Text = lastText[lastText.Length-2]+"\n";
             }
         }
     }
