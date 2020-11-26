@@ -30,11 +30,21 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.ügyfelekMutatásaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.átutalásokMutatásaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.számlákMutatásaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bankkártyákMutatásaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
+            this.átutalásaokMutatásaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ügyfelekMutatásaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.számlákMutatásaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.bankkártyákMutatásaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.adatokHozzáadásaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.átutalásHozzáadásaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ügyfélHozzáadásaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.számlaHozzáadásaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bankkártyaHozzáadásaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.torlesButton = new System.Windows.Forms.Button();
+            this.modositasButton = new System.Windows.Forms.Button();
+            this.grafikonMutatásaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tranzakciókToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.felhasználókNövekedéseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -57,60 +67,139 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ügyfelekMutatásaToolStripMenuItem,
             this.átutalásokMutatásaToolStripMenuItem,
-            this.számlákMutatásaToolStripMenuItem,
-            this.bankkártyákMutatásaToolStripMenuItem});
+            this.adatokHozzáadásaToolStripMenuItem,
+            this.grafikonMutatásaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1690, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1690, 30);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // ügyfelekMutatásaToolStripMenuItem
-            // 
-            this.ügyfelekMutatásaToolStripMenuItem.Name = "ügyfelekMutatásaToolStripMenuItem";
-            this.ügyfelekMutatásaToolStripMenuItem.Size = new System.Drawing.Size(146, 24);
-            this.ügyfelekMutatásaToolStripMenuItem.Text = "Ügyfelek mutatása";
-            this.ügyfelekMutatásaToolStripMenuItem.Click += new System.EventHandler(this.ÜgyfelekMutatásaToolStripMenuItem_Click);
-            // 
             // átutalásokMutatásaToolStripMenuItem
             // 
+            this.átutalásokMutatásaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.átutalásaokMutatásaToolStripMenuItem,
+            this.ügyfelekMutatásaToolStripMenuItem1,
+            this.számlákMutatásaToolStripMenuItem1,
+            this.bankkártyákMutatásaToolStripMenuItem1});
             this.átutalásokMutatásaToolStripMenuItem.Name = "átutalásokMutatásaToolStripMenuItem";
-            this.átutalásokMutatásaToolStripMenuItem.Size = new System.Drawing.Size(158, 24);
-            this.átutalásokMutatásaToolStripMenuItem.Text = "Átutalások mutatása";
-            this.átutalásokMutatásaToolStripMenuItem.Click += new System.EventHandler(this.ÁtutalásokMutatásaToolStripMenuItem_Click);
+            this.átutalásokMutatásaToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
+            this.átutalásokMutatásaToolStripMenuItem.Text = "Adatok mutatása";
             // 
-            // számlákMutatásaToolStripMenuItem
+            // átutalásaokMutatásaToolStripMenuItem
             // 
-            this.számlákMutatásaToolStripMenuItem.Name = "számlákMutatásaToolStripMenuItem";
-            this.számlákMutatásaToolStripMenuItem.Size = new System.Drawing.Size(143, 24);
-            this.számlákMutatásaToolStripMenuItem.Text = "Számlák mutatása";
-            this.számlákMutatásaToolStripMenuItem.Click += new System.EventHandler(this.SzámlákMutatásaToolStripMenuItem_Click);
+            this.átutalásaokMutatásaToolStripMenuItem.Name = "átutalásaokMutatásaToolStripMenuItem";
+            this.átutalásaokMutatásaToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
+            this.átutalásaokMutatásaToolStripMenuItem.Text = "Átutalásaok mutatása";
+            this.átutalásaokMutatásaToolStripMenuItem.Click += new System.EventHandler(this.ShowAtutalasok);
             // 
-            // bankkártyákMutatásaToolStripMenuItem
+            // ügyfelekMutatásaToolStripMenuItem1
             // 
-            this.bankkártyákMutatásaToolStripMenuItem.Name = "bankkártyákMutatásaToolStripMenuItem";
-            this.bankkártyákMutatásaToolStripMenuItem.Size = new System.Drawing.Size(167, 24);
-            this.bankkártyákMutatásaToolStripMenuItem.Text = "Bankkártyák mutatása";
-            this.bankkártyákMutatásaToolStripMenuItem.Click += new System.EventHandler(this.bankkártyákMutatásaToolStripMenuItem_Click);
+            this.ügyfelekMutatásaToolStripMenuItem1.Name = "ügyfelekMutatásaToolStripMenuItem1";
+            this.ügyfelekMutatásaToolStripMenuItem1.Size = new System.Drawing.Size(236, 26);
+            this.ügyfelekMutatásaToolStripMenuItem1.Text = "Ügyfelek mutatása";
+            this.ügyfelekMutatásaToolStripMenuItem1.Click += new System.EventHandler(this.ShowUgyfelek);
             // 
-            // button1
+            // számlákMutatásaToolStripMenuItem1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 41);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(221, 30);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Adatok hozzáadása";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.számlákMutatásaToolStripMenuItem1.Name = "számlákMutatásaToolStripMenuItem1";
+            this.számlákMutatásaToolStripMenuItem1.Size = new System.Drawing.Size(236, 26);
+            this.számlákMutatásaToolStripMenuItem1.Text = "Számlák mutatása";
+            this.számlákMutatásaToolStripMenuItem1.Click += new System.EventHandler(this.ShowSzamlak);
+            // 
+            // bankkártyákMutatásaToolStripMenuItem1
+            // 
+            this.bankkártyákMutatásaToolStripMenuItem1.Name = "bankkártyákMutatásaToolStripMenuItem1";
+            this.bankkártyákMutatásaToolStripMenuItem1.Size = new System.Drawing.Size(236, 26);
+            this.bankkártyákMutatásaToolStripMenuItem1.Text = "Bankkártyák mutatása";
+            this.bankkártyákMutatásaToolStripMenuItem1.Click += new System.EventHandler(this.ShowBankkartyak);
+            // 
+            // adatokHozzáadásaToolStripMenuItem
+            // 
+            this.adatokHozzáadásaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.átutalásHozzáadásaToolStripMenuItem,
+            this.ügyfélHozzáadásaToolStripMenuItem,
+            this.számlaHozzáadásaToolStripMenuItem,
+            this.bankkártyaHozzáadásaToolStripMenuItem});
+            this.adatokHozzáadásaToolStripMenuItem.Name = "adatokHozzáadásaToolStripMenuItem";
+            this.adatokHozzáadásaToolStripMenuItem.Size = new System.Drawing.Size(153, 26);
+            this.adatokHozzáadásaToolStripMenuItem.Text = "Adatok hozzáadása";
+            // 
+            // átutalásHozzáadásaToolStripMenuItem
+            // 
+            this.átutalásHozzáadásaToolStripMenuItem.Name = "átutalásHozzáadásaToolStripMenuItem";
+            this.átutalásHozzáadásaToolStripMenuItem.Size = new System.Drawing.Size(246, 26);
+            this.átutalásHozzáadásaToolStripMenuItem.Text = "Átutalás hozzáadása";
+            this.átutalásHozzáadásaToolStripMenuItem.Click += new System.EventHandler(this.AddAtutalas);
+            // 
+            // ügyfélHozzáadásaToolStripMenuItem
+            // 
+            this.ügyfélHozzáadásaToolStripMenuItem.Name = "ügyfélHozzáadásaToolStripMenuItem";
+            this.ügyfélHozzáadásaToolStripMenuItem.Size = new System.Drawing.Size(246, 26);
+            this.ügyfélHozzáadásaToolStripMenuItem.Text = "Ügyfél hozzáadása";
+            this.ügyfélHozzáadásaToolStripMenuItem.Click += new System.EventHandler(this.AddUgyfel);
+            // 
+            // számlaHozzáadásaToolStripMenuItem
+            // 
+            this.számlaHozzáadásaToolStripMenuItem.Name = "számlaHozzáadásaToolStripMenuItem";
+            this.számlaHozzáadásaToolStripMenuItem.Size = new System.Drawing.Size(246, 26);
+            this.számlaHozzáadásaToolStripMenuItem.Text = "Számla hozzáadása";
+            this.számlaHozzáadásaToolStripMenuItem.Click += new System.EventHandler(this.AddSzamla);
+            // 
+            // bankkártyaHozzáadásaToolStripMenuItem
+            // 
+            this.bankkártyaHozzáadásaToolStripMenuItem.Name = "bankkártyaHozzáadásaToolStripMenuItem";
+            this.bankkártyaHozzáadásaToolStripMenuItem.Size = new System.Drawing.Size(246, 26);
+            this.bankkártyaHozzáadásaToolStripMenuItem.Text = "Bankkártya hozzáadása";
+            this.bankkártyaHozzáadásaToolStripMenuItem.Click += new System.EventHandler(this.AddBankkartya);
+            // 
+            // torlesButton
+            // 
+            this.torlesButton.Location = new System.Drawing.Point(12, 547);
+            this.torlesButton.Name = "torlesButton";
+            this.torlesButton.Size = new System.Drawing.Size(199, 35);
+            this.torlesButton.TabIndex = 7;
+            this.torlesButton.Text = "Kijelölt sor törlése";
+            this.torlesButton.UseVisualStyleBackColor = true;
+            // 
+            // modositasButton
+            // 
+            this.modositasButton.Location = new System.Drawing.Point(217, 547);
+            this.modositasButton.Name = "modositasButton";
+            this.modositasButton.Size = new System.Drawing.Size(208, 35);
+            this.modositasButton.TabIndex = 8;
+            this.modositasButton.Text = "Kijelölt sor módosítása";
+            this.modositasButton.UseVisualStyleBackColor = true;
+            // 
+            // grafikonMutatásaToolStripMenuItem
+            // 
+            this.grafikonMutatásaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tranzakciókToolStripMenuItem,
+            this.felhasználókNövekedéseToolStripMenuItem});
+            this.grafikonMutatásaToolStripMenuItem.Name = "grafikonMutatásaToolStripMenuItem";
+            this.grafikonMutatásaToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.grafikonMutatásaToolStripMenuItem.Text = "Grafikon mutatása";
+            // 
+            // tranzakciókToolStripMenuItem
+            // 
+            this.tranzakciókToolStripMenuItem.Name = "tranzakciókToolStripMenuItem";
+            this.tranzakciókToolStripMenuItem.Size = new System.Drawing.Size(258, 26);
+            this.tranzakciókToolStripMenuItem.Text = "Tranzakciók";
+            // 
+            // felhasználókNövekedéseToolStripMenuItem
+            // 
+            this.felhasználókNövekedéseToolStripMenuItem.Name = "felhasználókNövekedéseToolStripMenuItem";
+            this.felhasználókNövekedéseToolStripMenuItem.Size = new System.Drawing.Size(258, 26);
+            this.felhasználókNövekedéseToolStripMenuItem.Text = "Felhasználók növekedése";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1690, 555);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1690, 594);
+            this.Controls.Add(this.modositasButton);
+            this.Controls.Add(this.torlesButton);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -127,11 +216,21 @@
         #endregion
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem ügyfelekMutatásaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem átutalásokMutatásaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem számlákMutatásaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bankkártyákMutatásaToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem átutalásaokMutatásaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ügyfelekMutatásaToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem számlákMutatásaToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem bankkártyákMutatásaToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem adatokHozzáadásaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem átutalásHozzáadásaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ügyfélHozzáadásaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem számlaHozzáadásaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bankkártyaHozzáadásaToolStripMenuItem;
+        private System.Windows.Forms.Button torlesButton;
+        private System.Windows.Forms.Button modositasButton;
+        private System.Windows.Forms.ToolStripMenuItem grafikonMutatásaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tranzakciókToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem felhasználókNövekedéseToolStripMenuItem;
     }
 }
 

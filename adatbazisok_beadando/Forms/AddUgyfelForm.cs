@@ -3,23 +3,12 @@ using System.Windows.Forms;
 
 namespace adatbazisok_beadando
 {
-    public partial class AddDataForm : Form
+    public partial class AddUgyfelForm : Form
     {
-        public AddDataForm()
+        public AddUgyfelForm()
         {
             InitializeComponent();
         }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void SendData(object sender, EventArgs e)
         {
             var query = "INSERT INTO ügyfél (`Keresztnév`," +
@@ -30,7 +19,7 @@ namespace adatbazisok_beadando
                 + keresztnev.Text + "','"
                 + vezeteknev.Text + "','"
                 + megszolitas.Text + "','"
-                + felefonszam.Text + "','"
+                + telefonszam.Text + "','"
                 + emailcim.Text + "','"
                 + lakcim.Text + "','"
                 + szemelyiIgazolvanySzam.Text + "','"
@@ -40,11 +29,28 @@ namespace adatbazisok_beadando
                 + anyjaLeanykoriNeve.Text + "');";
 
             DatabaseAccess.ExecuteInsert(query);
+            keresztnev.Clear();
+            vezeteknev.Clear();
+            megszolitas.Clear();
+            telefonszam.Clear();
+            emailcim.Clear();
+            lakcim.Clear();
+            szemelyiIgazolvanySzam.Clear();
+            adoazonositoJel.Clear();
+            allampolgarsag.Clear();
+            szuletesiDatum.ResetText();
+            anyjaLeanykoriNeve.Clear();
         }
 
-        private void textBox7_TextChanged(object sender, EventArgs e)
+        private void AddUgyfelForm_FormClosed(object sender, FormClosedEventArgs e)
         {
 
+        }
+
+        private void SendAndClose(object sender, EventArgs e)
+        {
+            SendData(sender, e);
+            this.Close();
         }
     }
 }

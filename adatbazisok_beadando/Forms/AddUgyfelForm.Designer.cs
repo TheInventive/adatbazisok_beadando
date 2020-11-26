@@ -1,7 +1,7 @@
 ﻿
 namespace adatbazisok_beadando
 {
-    partial class AddDataForm
+    partial class AddUgyfelForm
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,7 @@ namespace adatbazisok_beadando
             this.keresztnev = new System.Windows.Forms.TextBox();
             this.vezeteknev = new System.Windows.Forms.TextBox();
             this.megszolitas = new System.Windows.Forms.TextBox();
-            this.felefonszam = new System.Windows.Forms.TextBox();
+            this.telefonszam = new System.Windows.Forms.TextBox();
             this.lakcim = new System.Windows.Forms.TextBox();
             this.szemelyiIgazolvanySzam = new System.Windows.Forms.TextBox();
             this.adoazonositoJel = new System.Windows.Forms.TextBox();
@@ -52,6 +52,7 @@ namespace adatbazisok_beadando
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.sendDataButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // keresztnev
@@ -67,7 +68,6 @@ namespace adatbazisok_beadando
             this.vezeteknev.Name = "vezeteknev";
             this.vezeteknev.Size = new System.Drawing.Size(153, 22);
             this.vezeteknev.TabIndex = 1;
-            this.vezeteknev.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // megszolitas
             // 
@@ -76,12 +76,12 @@ namespace adatbazisok_beadando
             this.megszolitas.Size = new System.Drawing.Size(109, 22);
             this.megszolitas.TabIndex = 2;
             // 
-            // felefonszam
+            // telefonszam
             // 
-            this.felefonszam.Location = new System.Drawing.Point(419, 29);
-            this.felefonszam.Name = "felefonszam";
-            this.felefonszam.Size = new System.Drawing.Size(209, 22);
-            this.felefonszam.TabIndex = 4;
+            this.telefonszam.Location = new System.Drawing.Point(419, 29);
+            this.telefonszam.Name = "telefonszam";
+            this.telefonszam.Size = new System.Drawing.Size(209, 22);
+            this.telefonszam.TabIndex = 4;
             // 
             // lakcim
             // 
@@ -96,7 +96,6 @@ namespace adatbazisok_beadando
             this.szemelyiIgazolvanySzam.Name = "szemelyiIgazolvanySzam";
             this.szemelyiIgazolvanySzam.Size = new System.Drawing.Size(222, 22);
             this.szemelyiIgazolvanySzam.TabIndex = 6;
-            this.szemelyiIgazolvanySzam.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // adoazonositoJel
             // 
@@ -134,7 +133,6 @@ namespace adatbazisok_beadando
             this.label1.Size = new System.Drawing.Size(79, 17);
             this.label1.TabIndex = 12;
             this.label1.Text = "Keresztnév";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -235,19 +233,30 @@ namespace adatbazisok_beadando
             // 
             // sendDataButton
             // 
-            this.sendDataButton.Location = new System.Drawing.Point(1136, 69);
+            this.sendDataButton.Location = new System.Drawing.Point(1136, 76);
             this.sendDataButton.Name = "sendDataButton";
-            this.sendDataButton.Size = new System.Drawing.Size(157, 40);
+            this.sendDataButton.Size = new System.Drawing.Size(218, 40);
             this.sendDataButton.TabIndex = 25;
             this.sendDataButton.Text = "Ügyfél hozzáadása";
             this.sendDataButton.UseVisualStyleBackColor = true;
             this.sendDataButton.Click += new System.EventHandler(this.SendData);
             // 
-            // AddDataForm
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1136, 134);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(218, 44);
+            this.button1.TabIndex = 26;
+            this.button1.Text = "Ügyfél hozzáadása és bezárás";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.SendAndClose);
+            // 
+            // AddUgyfelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1375, 512);
+            this.ClientSize = new System.Drawing.Size(1399, 250);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.sendDataButton);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -267,12 +276,13 @@ namespace adatbazisok_beadando
             this.Controls.Add(this.adoazonositoJel);
             this.Controls.Add(this.szemelyiIgazolvanySzam);
             this.Controls.Add(this.lakcim);
-            this.Controls.Add(this.felefonszam);
+            this.Controls.Add(this.telefonszam);
             this.Controls.Add(this.megszolitas);
             this.Controls.Add(this.vezeteknev);
             this.Controls.Add(this.keresztnev);
-            this.Name = "AddDataForm";
+            this.Name = "AddUgyfelForm";
             this.Text = "AddDataForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddUgyfelForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -283,7 +293,7 @@ namespace adatbazisok_beadando
         private System.Windows.Forms.TextBox keresztnev;
         private System.Windows.Forms.TextBox vezeteknev;
         private System.Windows.Forms.TextBox megszolitas;
-        private System.Windows.Forms.TextBox felefonszam;
+        private System.Windows.Forms.TextBox telefonszam;
         private System.Windows.Forms.TextBox lakcim;
         private System.Windows.Forms.TextBox adoazonositoJel;
         private System.Windows.Forms.TextBox allampolgarsag;
@@ -303,5 +313,6 @@ namespace adatbazisok_beadando
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button sendDataButton;
         private System.Windows.Forms.TextBox szemelyiIgazolvanySzam;
+        private System.Windows.Forms.Button button1;
     }
 }

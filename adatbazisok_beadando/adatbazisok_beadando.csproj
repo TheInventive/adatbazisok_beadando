@@ -70,11 +70,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\AddDataForm.cs">
+    <Compile Include="Forms\AddAtutalasForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AddDataForm.Designer.cs">
-      <DependentUpon>AddDataForm.cs</DependentUpon>
+    <Compile Include="Forms\AddAtutalasForm.Designer.cs">
+      <DependentUpon>AddAtutalasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddBankkartyaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddBankkartyaForm.Designer.cs">
+      <DependentUpon>AddBankkartyaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddSzamlaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddSzamlaForm.Designer.cs">
+      <DependentUpon>AddSzamlaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddUgyfelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddUgyfelForm.Designer.cs">
+      <DependentUpon>AddUgyfelForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ChartForm.cs">
       <SubType>Form</SubType>
@@ -99,8 +117,17 @@
     <Compile Include="Model\Ugyfel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\AddDataForm.resx">
-      <DependentUpon>AddDataForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\AddAtutalasForm.resx">
+      <DependentUpon>AddAtutalasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddBankkartyaForm.resx">
+      <DependentUpon>AddBankkartyaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddSzamlaForm.resx">
+      <DependentUpon>AddSzamlaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddUgyfelForm.resx">
+      <DependentUpon>AddUgyfelForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

@@ -1,4 +1,5 @@
 ﻿using MySqlConnector;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -25,8 +26,29 @@ namespace adatbazisok_beadando
         {
             var connection = CreateConnection();
             var command = CreateCommand(sql, connection);
-            connection.Open();
-            command.ExecuteNonQuery();
+            try
+            {
+                connection.Open();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Az adatbázis nem elérhető.");
+                connection.Close();
+                return;
+            }
+            
+
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Az adatok nem helyesen lettek megadva!");
+                connection.Close();
+                return;
+            }
+
             connection.Close();
         }
 
@@ -36,7 +58,17 @@ namespace adatbazisok_beadando
             var command = CreateCommand(sql, connection);
             var result = new Dictionary<int, List<string>>();
 
-            connection.Open();
+            try
+            {
+                connection.Open();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Az adatbázis nem elérhető!");
+                connection.Close();
+                return null;
+            }
+
             var reader = command.ExecuteReader();
             if (reader.HasRows)
             {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using adatbazisok_beadando.Forms;
 using adatbazisok_beadando.Model;
 
 namespace adatbazisok_beadando
@@ -16,34 +17,52 @@ namespace adatbazisok_beadando
 
         }
 
-        private void ÜgyfelekMutatásaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var reader = DatabaseAccess.ExcecuteRead("SELECT * from ügyfél");
-            dataGridView1.InsertData(reader, MediaType.Ugyfel);
-        }
-
-        private void ÁtutalásokMutatásaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ShowAtutalasok(object sender, EventArgs e)
         {
             var reader = DatabaseAccess.ExcecuteRead("SELECT * from átutalás");
             dataGridView1.InsertData(reader, MediaType.Atutalas);
         }
 
-        private void SzámlákMutatásaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ShowUgyfelek(object sender, EventArgs e)
+        {
+            var reader = DatabaseAccess.ExcecuteRead("SELECT * from ügyfél");
+            dataGridView1.InsertData(reader, MediaType.Ugyfel);
+        }
+
+        private void ShowSzamlak(object sender, EventArgs e)
         {
             var reader = DatabaseAccess.ExcecuteRead("SELECT * from számla");
             dataGridView1.InsertData(reader, MediaType.Szamla);
         }
 
-        private void bankkártyákMutatásaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ShowBankkartyak(object sender, EventArgs e)
         {
             var reader = DatabaseAccess.ExcecuteRead("SELECT * from bankkártya");
             dataGridView1.InsertData(reader, MediaType.Bankkartya);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void AddAtutalas(object sender, EventArgs e)
         {
-            var addData = new AddDataForm();
-            addData.ShowDialog();
+            new AddAtutalasForm().ShowDialog();
+            ShowAtutalasok(null, null);
+        }
+
+        private void AddUgyfel(object sender, EventArgs e)
+        {
+            new AddUgyfelForm().ShowDialog();
+            ShowUgyfelek(null, null);
+        }
+
+        private void AddSzamla(object sender, EventArgs e)
+        {
+            new AddSzamlaForm().ShowDialog();
+            ShowSzamlak(null, null);
+        }
+
+        private void AddBankkartya(object sender, EventArgs e)
+        {
+            new AddBankkartyaForm().ShowDialog();
+            ShowBankkartyak(null,null);
         }
     }
 }
