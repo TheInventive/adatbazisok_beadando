@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace adatbazisok_beadando.Forms
@@ -8,6 +9,16 @@ namespace adatbazisok_beadando.Forms
         public AddSzamlaForm()
         {
             InitializeComponent();
+        }
+
+        public AddSzamlaForm(List<string> list)
+        {
+            InitializeComponent();
+            if (list.Count != 4) return;
+            szamlaszam.Text = list[0];
+            valuta.Text = list[1];
+            penz.Text = list[2];
+            szerzodesDatuma.Value = DateTime.Parse(list[3]);
         }
 
         private void SendData(object sender, EventArgs e)

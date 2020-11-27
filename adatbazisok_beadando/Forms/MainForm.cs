@@ -2,6 +2,8 @@
 using adatbazisok_beadando.Model;
 using System;
 using System.Windows.Forms;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace adatbazisok_beadando
 {
@@ -86,7 +88,31 @@ namespace adatbazisok_beadando
 
         private void ModositasButton_Click(object sender, EventArgs e)
         {
-
+            if (dataGridView1.SelectedRows.Count == 0) return;
+            var data = dataGridView1.SelectedRows[0].Cells;
+            var list = new List<string>();
+            for (int i = 0; i < data.Count; i++)
+            {
+                list.Add(data[i].Value.ToString());
+            }
+            
+            switch (type)
+            {
+                case MediaType.Atutalas:
+                    new AddAtutalasForm(list).ShowDialog();
+                    break;
+                case MediaType.Bankkartya:
+                    new AddBankkartyaForm(list).ShowDialog();
+                    break;
+                case MediaType.Szamla:
+                    new AddSzamlaForm(list).ShowDialog();
+                    break;
+                case MediaType.Ugyfel:
+                    new AddUgyfelForm(list).ShowDialog();
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void UpdateForm()

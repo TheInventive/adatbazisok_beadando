@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -9,6 +10,18 @@ namespace adatbazisok_beadando.Forms
         public AddAtutalasForm()
         {
             InitializeComponent();
+        }
+
+        public AddAtutalasForm(List<string> data)
+        {
+            InitializeComponent();
+            if (data.Count != 6) return;
+            mennyiseg.Text = data[0];
+            valuta.Text = data[1];
+            datum.Text = data[2];
+            megbizoAzonosito.Text = data[3];
+            celszamlaSzamlaszama.Text = data[4];
+            eredetszamlaSzamlaszama.Text = data[5];
         }
 
         private void SendData(object sender, EventArgs e)
@@ -86,11 +99,12 @@ namespace adatbazisok_beadando.Forms
         {
             megbizoListbox.Items.Clear();
             var query = "SELECT DISTINCT  `ügyfél`. `Ügyfél azonosító`,`ügyfél`.`Keresztnév`,`ügyfél`.`Vezetéknév`,`ügyfél`.`Megszólítás` " +
-                "FROM `ügyfél`, meghatalmazott, tulajdonos, számla " +
-                "WHERE `ügyfél`.`Ügyfél azonosító` = " +
-                "(SELECT `meghatalmazott`.`meghatalmazott azonosító` " +
+                "FROM `ügyfél` " +
+                "WHERE `ügyfél`.`Ügyfél azonosító` IN " +
+                "(SELECT `meghatalmazott`.`meghatalmazott azonosító` FROM `meghatalmazott` " +
                 $"WHERE `meghatalmazott`.`számlaszám` = '{celszamlaSzamlaszama}') " +
-                "OR `ügyfél`.`Ügyfél azonosító`= (SELECT `tulajdonos`.`ügyfél azonosító` " +
+                "OR `ügyfél`.`Ügyfél azonosító` IN " +
+                "(SELECT `tulajdonos`.`ügyfél azonosító` FROM `tulajdonos`" +
                 $"WHERE `tulajdonos`.`számlaszám` = '{celszamlaSzamlaszama}') " +
                 "ORDER BY `Ügyfél azonosító`;";
             var result = DatabaseAccess.ExcecuteRead(query);

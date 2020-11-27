@@ -65,7 +65,7 @@ namespace adatbazisok_beadando
         public static List<Szamla> GetSzamla(Dictionary<int, List<string>> values)
         {
             var data = new List<Szamla>();
-            if (values.Count == 0) return null;
+            if (values == null || values.Count == 0) return null;
             for (int i = 0; i < values.Count; i++)
             {
                 values.TryGetValue(i, out List<string> row);

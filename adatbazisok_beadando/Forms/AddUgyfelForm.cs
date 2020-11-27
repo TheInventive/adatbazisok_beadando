@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace adatbazisok_beadando
@@ -9,6 +10,24 @@ namespace adatbazisok_beadando
         {
             InitializeComponent();
         }
+
+        public AddUgyfelForm(List<string> list)
+        {
+            InitializeComponent();
+            if (list.Count != 12) return;
+            keresztnev.Text = list[1];
+            vezeteknev.Text = list[2];
+            megszolitas.Text = list[3];
+            telefonszam.Text = list[4];
+            emailcim.Text = list[5];
+            lakcim.Text = list[6];
+            szemelyiIgazolvanySzam.Text = list[7];
+            adoazonositoJel.Text = list[8];
+            allampolgarsag.Text = list[9];
+            szuletesiDatum.Value = DateTime.Parse(list[11]);
+            anyjaLeanykoriNeve.Text = list[10];
+        }
+
         private void SendData(object sender, EventArgs e)
         {
             var query = "INSERT INTO ügyfél (`Keresztnév`," +

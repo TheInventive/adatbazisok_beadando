@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace adatbazisok_beadando.Forms
@@ -8,6 +9,16 @@ namespace adatbazisok_beadando.Forms
         public AddBankkartyaForm()
         {
             InitializeComponent();
+        }
+        public AddBankkartyaForm(List<string> array)
+        {
+            InitializeComponent();
+            bankkartyaszam.Text = array[0];
+            lejarat.Value = DateTime.Parse(array[1]);
+            megerositoCod.Text = array[2];
+            tipus.Text = array[3];
+            limit.Text = array[4];
+            bankkartyaszam.Text = array[5];
         }
 
         private void SendData(object sender, EventArgs e)
