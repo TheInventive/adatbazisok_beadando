@@ -2,7 +2,6 @@
 using adatbazisok_beadando.Model;
 using System;
 using System.Windows.Forms;
-using System.Linq;
 using System.Collections.Generic;
 
 namespace adatbazisok_beadando
@@ -22,7 +21,7 @@ namespace adatbazisok_beadando
             var reader = DatabaseAccess.ExcecuteRead(sql);
             dataGridView1.InsertData(reader, MediaType.Atutalas);
             type = MediaType.Atutalas;
-            sqlLabel.Text += string.Format("Executed SQL: {0}\n", sql);
+            ChangeText(DatabaseAccess.latestSQl);
         }
 
         private void ShowUgyfelek(object sender, EventArgs e)
@@ -31,7 +30,7 @@ namespace adatbazisok_beadando
             var reader = DatabaseAccess.ExcecuteRead(sql);
             dataGridView1.InsertData(reader, MediaType.Ugyfel);
             type = MediaType.Ugyfel;
-            sqlLabel.Text += string.Format("Executed SQL: {0}\n", sql);
+            ChangeText(DatabaseAccess.latestSQl);
         }
 
         private void ShowSzamlak(object sender, EventArgs e)
@@ -40,7 +39,7 @@ namespace adatbazisok_beadando
             var reader = DatabaseAccess.ExcecuteRead(sql);
             dataGridView1.InsertData(reader, MediaType.Szamla);
             type = MediaType.Szamla;
-            sqlLabel.Text += string.Format("Executed SQL: {0}\n", sql);
+            ChangeText(DatabaseAccess.latestSQl);
         }
 
         private void ShowBankkartyak(object sender, EventArgs e)
@@ -49,30 +48,34 @@ namespace adatbazisok_beadando
             var reader = DatabaseAccess.ExcecuteRead(sql);
             dataGridView1.InsertData(reader, MediaType.Bankkartya);
             type = MediaType.Bankkartya;
-            sqlLabel.Text += string.Format("Executed SQL: {0}\n", sql);
+            ChangeText(DatabaseAccess.latestSQl);
         }
 
         private void AddAtutalas(object sender, EventArgs e)
         {
             new AddAtutalasForm().ShowDialog();
+            ChangeText(DatabaseAccess.latestSQl);
             ShowAtutalasok(null, null);
         }
 
         private void AddUgyfel(object sender, EventArgs e)
         {
             new AddUgyfelForm().ShowDialog();
+            ChangeText(DatabaseAccess.latestSQl);
             ShowUgyfelek(null, null);
         }
 
         private void AddSzamla(object sender, EventArgs e)
         {
             new AddSzamlaForm().ShowDialog();
+            ChangeText(DatabaseAccess.latestSQl);
             ShowSzamlak(null, null);
         }
 
         private void AddBankkartya(object sender, EventArgs e)
         {
             new AddBankkartyaForm().ShowDialog();
+            ChangeText(DatabaseAccess.latestSQl);
             ShowBankkartyak(null, null);
         }
 
@@ -81,7 +84,7 @@ namespace adatbazisok_beadando
             if (type != null)
             {
                 var data = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-                sqlLabel.Text += string.Format("Executed SQL: {0}\n", DatabaseAccess.ExecuteDelete(data, type));
+                ChangeText(DatabaseAccess.latestSQl);
                 UpdateForm();
             }
         }
@@ -100,15 +103,22 @@ namespace adatbazisok_beadando
             {
                 case MediaType.Atutalas:
                     new AddAtutalasForm(list).ShowDialog();
+                    ShowAtutalasok(null, null);
+                    ChangeText(DatabaseAccess.latestSQl);
                     break;
                 case MediaType.Bankkartya:
                     new AddBankkartyaForm(list).ShowDialog();
+                    ShowBankkartyak(null, null);
+                    ChangeText(DatabaseAccess.latestSQl);
                     break;
                 case MediaType.Szamla:
                     new AddSzamlaForm(list).ShowDialog();
+                    ShowSzamlak(null, null);
                     break;
                 case MediaType.Ugyfel:
                     new AddUgyfelForm(list).ShowDialog();
+                    ShowUgyfelek(null, null);
+                    ChangeText(DatabaseAccess.latestSQl);
                     break;
                 default:
                     break;
@@ -136,13 +146,17 @@ namespace adatbazisok_beadando
             }
         }
 
-        private void SqlLabel_TextChanged(object sender, EventArgs e)
+        private void ChangeText(string text)
         {
-            if (((Label)sender).Text.Length > 300)
+            sqlTextBox.Text += string.Format("Executed SQL: {0}" + Environment.NewLine, text);
+        }
+
+        private void SqlTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (((TextBox)sender).Text.Length > 1000)
             {
-                var lastText = ((Label)sender).Text.Split('\n');
-                ((Label)sender).Text = string.Empty;
-                ((Label)sender).Text = lastText[lastText.Length-2]+"\n";
+                var lastText = ((TextBox)sender).Text.Split('\n');
+                ((TextBox)sender).Text = lastText[lastText.Length-2]+"\n";
             }
         }
     }

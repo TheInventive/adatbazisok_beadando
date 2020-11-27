@@ -15,13 +15,13 @@ namespace adatbazisok_beadando.Forms
         public AddAtutalasForm(List<string> data)
         {
             InitializeComponent();
-            if (data.Count != 6) return;
-            mennyiseg.Text = data[0];
-            valuta.Text = data[1];
-            datum.Text = data[2];
-            megbizoAzonosito.Text = data[3];
-            celszamlaSzamlaszama.Text = data[4];
-            eredetszamlaSzamlaszama.Text = data[5];
+            if (data.Count != 7) return;
+            mennyiseg.Text = data[1];
+            valuta.Text = data[2];
+            datum.Text = data[3];
+            megbizoAzonosito.Text = data[4];
+            celszamlaSzamlaszama.Text = data[5];
+            eredetszamlaSzamlaszama.Text = data[6];
         }
 
         private void SendData(object sender, EventArgs e)

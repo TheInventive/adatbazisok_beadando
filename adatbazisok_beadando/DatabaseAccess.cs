@@ -8,6 +8,7 @@ namespace adatbazisok_beadando
 {
     public static class DatabaseAccess
     {
+        public static string latestSQl = "";
         private const string connetionString = @"datasource=127.0.0.1;port=3306;username=admin;password=WXiqIfzpwO8XHMDK;database=bank;";
 
         private static MySqlConnection CreateConnection()
@@ -25,6 +26,7 @@ namespace adatbazisok_beadando
 
         public static bool ExecuteInsert(string sql)
         {
+            latestSQl = sql;
             var connection = CreateConnection();
             var command = CreateCommand(sql, connection);
             try
@@ -59,6 +61,7 @@ namespace adatbazisok_beadando
             var connection = CreateConnection();
             var command = CreateCommand(sql, connection);
             var result = new Dictionary<int, List<string>>();
+            latestSQl = sql;
 
             try
             {
@@ -109,7 +112,7 @@ namespace adatbazisok_beadando
             return result;
         }
 
-        public static string ExecuteDelete(string key, MediaType? type)
+        public static void ExecuteDelete(string key, MediaType? type)
         {
             string sql = "";
             switch (type)
@@ -128,6 +131,7 @@ namespace adatbazisok_beadando
                     break;
             }
 
+            latestSQl = sql;
             var connection = CreateConnection();
             var command = CreateCommand(sql, connection);
             try
@@ -152,7 +156,6 @@ namespace adatbazisok_beadando
             }
 
             connection.Close();
-            return sql;
         }
     }
 }
