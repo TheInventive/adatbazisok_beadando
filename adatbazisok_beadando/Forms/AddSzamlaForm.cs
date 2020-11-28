@@ -6,16 +6,21 @@ namespace adatbazisok_beadando.Forms
 {
     public partial class AddSzamlaForm : Form
     {
+        private readonly bool isModify;
+        private readonly string szam = "";
         public AddSzamlaForm()
         {
+            isModify = false;
             InitializeComponent();
         }
 
         public AddSzamlaForm(List<string> list)
         {
+            isModify = true;
             InitializeComponent();
             if (list.Count != 4) return;
             szamlaszam.Text = list[0];
+            szam = list[0];
             valuta.Text = list[1];
             penz.Text = list[2];
             szerzodesDatuma.Value = DateTime.Parse(list[3]);
@@ -23,6 +28,11 @@ namespace adatbazisok_beadando.Forms
 
         private void SendData(object sender, EventArgs e)
         {
+            if (isModify)
+            {
+                Modify();
+                return;
+            }
             var query = "INSERT INTO számla (`Számlaszám`," +
                 "`Valuta`,`Pénz`,`Szerződés dátuma`)" +
                 "VALUES ('"
@@ -38,6 +48,22 @@ namespace adatbazisok_beadando.Forms
                 valuta.Clear();
                 penz.Clear();
                 szerzodesDatuma.ResetText();
+            }
+        }
+
+        private void Modify()
+        {
+            var query = $"UPDATE `számla` SET `Számlaszám` = '{szamlaszam.Text}', " +
+                $"`Valuta` = '{valuta.Text}', " +
+                $"`Pénz` = '{penz.Text}', " +
+                $"`Szerződés dátuma` = '{szerzodesDatuma.Value:yyyy-MM-dd}' " +
+                $"WHERE `számla`.`Számlaszám` = '{szam}';";
+
+            if (DatabaseAccess.ExecuteInsert(query))
+            {
+                DatabaseAccess.latestSQl = query;
+                Close();
+
             }
         }
 

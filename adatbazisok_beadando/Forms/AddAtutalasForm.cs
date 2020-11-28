@@ -7,15 +7,20 @@ namespace adatbazisok_beadando.Forms
 {
     public partial class AddAtutalasForm : Form
     {
+        private readonly bool isModify;
+        private readonly int utalasAzonosito;
         public AddAtutalasForm()
         {
+            isModify = false;
             InitializeComponent();
         }
 
         public AddAtutalasForm(List<string> data)
         {
+            isModify = true;
             InitializeComponent();
             if (data.Count != 7) return;
+            utalasAzonosito = int.Parse(data[0]);
             mennyiseg.Text = data[1];
             valuta.Text = data[2];
             datum.Text = data[3];
@@ -26,6 +31,11 @@ namespace adatbazisok_beadando.Forms
 
         private void SendData(object sender, EventArgs e)
         {
+            if (isModify)
+            {
+                Modify();
+                return;
+            }
             var query = "INSERT INTO átutalás (`Mennyiség`," + "`valuta`," +
                 "`Dátum`,`Megbízó azonosító`,`Célszámla számlaszáma`," +
                 "`Eredetszámla számlaszáma`)" +
@@ -46,6 +56,24 @@ namespace adatbazisok_beadando.Forms
                 megbizoAzonosito.Clear();
                 celszamlaSzamlaszama.Clear();
                 eredetszamlaSzamlaszama.Clear();
+
+            }
+        }
+
+        private void Modify()
+        {
+            var query = $"UPDATE `átutalás` SET `Mennyiség` = '{mennyiseg.Text}', " +
+                $"`Dátum` = '{datum.Value:yyyy-MM-dd}', " +
+                $"`Megbízó azonosító` = '{megbizoAzonosito.Text}', " +
+                $"`Eredetszámla számlaszáma` = '{eredetszamlaSzamlaszama.Text}', " +
+                $"`Célszámla számlaszáma` = '{celszamlaSzamlaszama.Text}', " +
+                $"`valuta` = '{valuta.Text}' " +
+                $"WHERE `átutalás`.`Utalás azonosító` = {utalasAzonosito};";
+
+            if (DatabaseAccess.ExecuteInsert(query))
+            {
+                DatabaseAccess.latestSQl = query;
+                Close();
             }
         }
 
@@ -62,23 +90,27 @@ namespace adatbazisok_beadando.Forms
 
         private void CelListBoxChanged(object sender, EventArgs e)
         {
+            if (((ListBox)sender).SelectedItem == null) return;
             celszamlaSzamlaszama.Text = ((ListBox)sender).SelectedItem.ToString();
         }
 
         private void ErderListBoxChanged(object sender, EventArgs e)
         {
+            if (((ListBox)sender).SelectedItem == null) return;
             eredetszamlaSzamlaszama.Text = ((ListBox)sender).SelectedItem.ToString();
             FillMegbizoBox(eredetszamlaSzamlaszama.Text);
         }
 
         private void ValutaListBoxChanged(object sender, EventArgs e)
         {
+            if (((ListBox)sender).SelectedItem == null) return;
             valuta.Text = ((ListBox)sender).SelectedItem.ToString();
         }
 
 
         private void MegbizoListBoxChanged(object sender, EventArgs e)
         {
+            if (((ListBox)sender).SelectedItem == null) return;
             megbizoAzonosito.Text = ((ListBox)sender).SelectedItem.ToString().Split(' ').Last();
         }
 

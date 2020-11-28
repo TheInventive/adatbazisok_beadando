@@ -121,10 +121,10 @@ namespace adatbazisok_beadando
                     sql = $"DELETE FROM `átutalás` WHERE `Utalás azonosító` = {key}";
                     break;
                 case MediaType.Bankkartya:
-                    sql = $"DELETE FROM `bankkártya` WHERE `kártyaszám` = {key}";
+                    sql = $"DELETE FROM `bankkártya` WHERE `kártyaszám` = '{key}'";
                     break;
                 case MediaType.Szamla:
-                    sql = $"DELETE FROM `számla` WHERE `Számlaszám` = {key}";
+                    sql = $"DELETE FROM `számla` WHERE `Számlaszám` = '{key}'";
                     break;
                 case MediaType.Ugyfel:
                     sql = $"DELETE FROM `ügyfél` WHERE `Ügyfél azonosító` = {key}";

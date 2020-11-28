@@ -1,6 +1,6 @@
 ﻿namespace adatbazisok_beadando
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -59,7 +59,7 @@
             this.mainGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.mainGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.mainGrid.Dock = System.Windows.Forms.DockStyle.Top;
-            this.mainGrid.Location = new System.Drawing.Point(0, 30);
+            this.mainGrid.Location = new System.Drawing.Point(0, 28);
             this.mainGrid.MultiSelect = false;
             this.mainGrid.Name = "mainGrid";
             this.mainGrid.ReadOnly = true;
@@ -78,7 +78,7 @@
             this.grafikonMutatásaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1690, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1690, 28);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -195,7 +195,7 @@
             // 
             this.torlesButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.torlesButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.torlesButton.Location = new System.Drawing.Point(0, 485);
+            this.torlesButton.Location = new System.Drawing.Point(0, 483);
             this.torlesButton.Name = "torlesButton";
             this.torlesButton.Size = new System.Drawing.Size(1690, 35);
             this.torlesButton.TabIndex = 7;
@@ -207,7 +207,7 @@
             // 
             this.modositasButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.modositasButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.modositasButton.Location = new System.Drawing.Point(0, 520);
+            this.modositasButton.Location = new System.Drawing.Point(0, 518);
             this.modositasButton.Name = "modositasButton";
             this.modositasButton.Size = new System.Drawing.Size(1690, 35);
             this.modositasButton.TabIndex = 8;
@@ -219,11 +219,11 @@
             // 
             this.sqlTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sqlTextBox.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.sqlTextBox.Location = new System.Drawing.Point(0, 555);
+            this.sqlTextBox.Location = new System.Drawing.Point(0, 553);
             this.sqlTextBox.Multiline = true;
             this.sqlTextBox.Name = "sqlTextBox";
             this.sqlTextBox.ReadOnly = true;
-            this.sqlTextBox.Size = new System.Drawing.Size(1690, 102);
+            this.sqlTextBox.Size = new System.Drawing.Size(1690, 104);
             this.sqlTextBox.TabIndex = 10;
             this.sqlTextBox.TextChanged += new System.EventHandler(this.SqlTextBox_TextChanged);
             // 

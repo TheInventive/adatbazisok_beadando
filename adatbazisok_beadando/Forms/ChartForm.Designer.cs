@@ -29,9 +29,9 @@ namespace adatbazisok_beadando
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.atutalasChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.eredetListBox = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.atutalasChart)).BeginInit();
@@ -39,17 +39,19 @@ namespace adatbazisok_beadando
             // 
             // atutalasChart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.atutalasChart.ChartAreas.Add(chartArea2);
+            chartArea1.Name = "ChartArea1";
+            this.atutalasChart.ChartAreas.Add(chartArea1);
             this.atutalasChart.Dock = System.Windows.Forms.DockStyle.Top;
-            legend2.Name = "Legend1";
-            this.atutalasChart.Legends.Add(legend2);
+            legend1.Name = "Legend1";
+            this.atutalasChart.Legends.Add(legend1);
             this.atutalasChart.Location = new System.Drawing.Point(0, 0);
             this.atutalasChart.Name = "atutalasChart";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Átutalások";
-            this.atutalasChart.Series.Add(series2);
+            this.atutalasChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
+            series1.ChartArea = "ChartArea1";
+            series1.CustomProperties = "EmptyPointValue=Zero";
+            series1.Legend = "Legend1";
+            series1.Name = "Átutalások";
+            this.atutalasChart.Series.Add(series1);
             this.atutalasChart.Size = new System.Drawing.Size(1466, 569);
             this.atutalasChart.TabIndex = 0;
             this.atutalasChart.Text = "chart1";

@@ -20,7 +20,7 @@ namespace adatbazisok_beadando
         private void ShowData(string szamlaszam)
         {
             atutalasChart.Series["Átutalások"].Points.Clear();
-            var sql = $"SELECT * from átutalás WHERE `átutalás`.`Eredetszámla számlaszáma` = '{szamlaszam}'";
+            var sql = $"SELECT * from átutalás WHERE `átutalás`.`Eredetszámla számlaszáma` = '{szamlaszam}' && `átutalás`.`Dátum` > '2019-12-31'";
             var reader = DatabaseAccess.ExcecuteRead(sql);
             var result = DataGridViewHelper.GetAtutalas(reader);
             if(result == null)
@@ -30,6 +30,7 @@ namespace adatbazisok_beadando
             }
             var month = result
                 .Select(_ => new { _.Datum, _.Mennyiseg })
+                .OrderBy(_=>_.Datum)
                 .GroupBy(_ => CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(_.Datum.Month)).ToDictionary(key => key.Key, value => value.ToList())
                 .Select(_ => new { _.Key, V = _.Value.Sum(m => m.Mennyiseg) });
             foreach (var m in month)

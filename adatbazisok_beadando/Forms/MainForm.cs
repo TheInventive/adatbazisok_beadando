@@ -6,11 +6,11 @@ using System.Collections.Generic;
 
 namespace adatbazisok_beadando
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         private MediaType? type;
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -63,7 +63,6 @@ namespace adatbazisok_beadando
             ChangeText(DatabaseAccess.latestSQl);
         }
 
-
         private void ShowTulajdonosok(object sender, EventArgs e)
         {
             var sql = "SELECT `ügyfél`.`Megszólítás`,`ügyfél`.`Keresztnév`," +
@@ -106,12 +105,11 @@ namespace adatbazisok_beadando
 
         private void TorlesButton_Click(object sender, EventArgs e)
         {
-            if (type != null)
-            {
-                var data = mainGrid.SelectedRows[0].Cells[0].Value.ToString();
-                ChangeText(DatabaseAccess.latestSQl);
-                UpdateForm();
-            }
+            if (type == null || mainGrid.SelectedRows.Count == 0) return;
+            var data = mainGrid.SelectedRows[0].Cells[0].Value.ToString();
+            DatabaseAccess.ExecuteDelete(data, type);
+            ChangeText(DatabaseAccess.latestSQl);
+            UpdateForm();
         }
 
         private void ModositasButton_Click(object sender, EventArgs e)
@@ -123,27 +121,28 @@ namespace adatbazisok_beadando
             {
                 list.Add(data[i].Value.ToString());
             }
-            
+
             switch (type)
             {
                 case MediaType.Atutalas:
                     new AddAtutalasForm(list).ShowDialog();
-                    ShowAtutalasok(null, null);
                     ChangeText(DatabaseAccess.latestSQl);
+                    ShowAtutalasok(null, null);
                     break;
                 case MediaType.Bankkartya:
                     new AddBankkartyaForm(list).ShowDialog();
-                    ShowBankkartyak(null, null);
                     ChangeText(DatabaseAccess.latestSQl);
+                    ShowBankkartyak(null, null);
                     break;
                 case MediaType.Szamla:
                     new AddSzamlaForm(list).ShowDialog();
+                    ChangeText(DatabaseAccess.latestSQl);
                     ShowSzamlak(null, null);
                     break;
                 case MediaType.Ugyfel:
                     new AddUgyfelForm(list).ShowDialog();
-                    ShowUgyfelek(null, null);
                     ChangeText(DatabaseAccess.latestSQl);
+                    ShowUgyfelek(null, null);
                     break;
                 default:
                     break;
@@ -181,7 +180,7 @@ namespace adatbazisok_beadando
             if (((TextBox)sender).Text.Length > 1000)
             {
                 var lastText = ((TextBox)sender).Text.Split('\n');
-                ((TextBox)sender).Text = lastText[lastText.Length-2]+"\n";
+                ((TextBox)sender).Text = lastText[lastText.Length - 2] + "\n";
             }
         }
 

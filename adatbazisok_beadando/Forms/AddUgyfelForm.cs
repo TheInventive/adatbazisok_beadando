@@ -16,9 +16,10 @@ namespace adatbazisok_beadando
 
         public AddUgyfelForm(List<string> list)
         {
+            InitializeComponent();
+            sendDataButton.Visible = false;
             ugyfelAzonosito = int.Parse(list[0]);
             isModify = true;
-            InitializeComponent();
             if (list.Count != 12) return;
             keresztnev.Text = list[1];
             vezeteknev.Text = list[2];
@@ -90,13 +91,14 @@ namespace adatbazisok_beadando
                 $"`Személyi igazolvány szám` = '{szemelyiIgazolvanySzam.Text}', " +
                 $"`Adóazonosító jel` = '{adoazonositoJel.Text}', " +
                 $"`Állampolgárság` = '{allampolgarsag.Text}', " +
-                $"`Születési dátum` = '{szuletesiDatum.Value.ToString("yyyy-MM-dd")}', " +
+                $"`Születési dátum` = '{szuletesiDatum.Value:yyyy-MM-dd}', " +
                 $"`Anyja leánykori neve` = '{anyjaLeanykoriNeve.Text}', " +
                 $"`Email` = '{emailcim.Text}' " +
                 $"WHERE `ügyfél`.`Ügyfél azonosító` = {ugyfelAzonosito};";
 
             if (DatabaseAccess.ExecuteInsert(query))
             {
+                DatabaseAccess.latestSQl = query;
                 Close();
             }
         }
