@@ -17,8 +17,10 @@ namespace adatbazisok_beadando.Forms
 
         public AddAtutalasForm(List<string> data)
         {
-            isModify = true;
+
             InitializeComponent();
+            kuldes.Visible = false;
+            isModify = true;
             if (data.Count != 7) return;
             utalasAzonosito = int.Parse(data[0]);
             mennyiseg.Text = data[1];

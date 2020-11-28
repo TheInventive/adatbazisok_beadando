@@ -29,7 +29,6 @@ namespace adatbazisok_beadando.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.bankkartyaszam = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -44,14 +43,8 @@ namespace adatbazisok_beadando.Forms
             this.kuldes = new System.Windows.Forms.Button();
             this.bankszamaszamListbox = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.kartyaszam = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // bankkartyaszam
-            // 
-            this.bankkartyaszam.Location = new System.Drawing.Point(15, 45);
-            this.bankkartyaszam.Name = "bankkartyaszam";
-            this.bankkartyaszam.Size = new System.Drawing.Size(238, 22);
-            this.bankkartyaszam.TabIndex = 27;
             // 
             // label17
             // 
@@ -172,11 +165,19 @@ namespace adatbazisok_beadando.Forms
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.SendAndClose);
             // 
+            // kartyaszam
+            // 
+            this.kartyaszam.Location = new System.Drawing.Point(18, 44);
+            this.kartyaszam.Name = "kartyaszam";
+            this.kartyaszam.Size = new System.Drawing.Size(236, 22);
+            this.kartyaszam.TabIndex = 53;
+            // 
             // AddBankkartyaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(873, 330);
+            this.Controls.Add(this.kartyaszam);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.bankszamaszamListbox);
             this.Controls.Add(this.kuldes);
@@ -191,7 +192,6 @@ namespace adatbazisok_beadando.Forms
             this.Controls.Add(this.limit);
             this.Controls.Add(this.megerositoCod);
             this.Controls.Add(this.bankszamlaszam);
-            this.Controls.Add(this.bankkartyaszam);
             this.Name = "AddBankkartyaForm";
             this.Text = "AddBankkartyaForm";
             this.Load += new System.EventHandler(this.AddBankkartyaForm_Load);
@@ -201,8 +201,6 @@ namespace adatbazisok_beadando.Forms
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox bankkartyaszam;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
@@ -217,5 +215,6 @@ namespace adatbazisok_beadando.Forms
         private System.Windows.Forms.Button kuldes;
         private System.Windows.Forms.ListBox bankszamaszamListbox;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox kartyaszam;
     }
 }

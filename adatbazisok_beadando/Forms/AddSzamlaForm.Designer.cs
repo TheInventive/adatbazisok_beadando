@@ -58,9 +58,9 @@ namespace adatbazisok_beadando.Forms
             // 
             // penz
             // 
-            this.penz.Location = new System.Drawing.Point(145, 121);
+            this.penz.Location = new System.Drawing.Point(132, 121);
             this.penz.Name = "penz";
-            this.penz.Size = new System.Drawing.Size(221, 22);
+            this.penz.Size = new System.Drawing.Size(188, 22);
             this.penz.TabIndex = 3;
             // 
             // label13
@@ -84,7 +84,7 @@ namespace adatbazisok_beadando.Forms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(142, 101);
+            this.label2.Location = new System.Drawing.Point(129, 101);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 17);
             this.label2.TabIndex = 47;
@@ -92,7 +92,7 @@ namespace adatbazisok_beadando.Forms
             // 
             // szerzodesDatuma
             // 
-            this.szerzodesDatuma.Location = new System.Drawing.Point(364, 59);
+            this.szerzodesDatuma.Location = new System.Drawing.Point(394, 59);
             this.szerzodesDatuma.Name = "szerzodesDatuma";
             this.szerzodesDatuma.Size = new System.Drawing.Size(200, 22);
             this.szerzodesDatuma.TabIndex = 48;
@@ -100,7 +100,7 @@ namespace adatbazisok_beadando.Forms
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(361, 39);
+            this.label3.Location = new System.Drawing.Point(391, 39);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(126, 17);
             this.label3.TabIndex = 49;
@@ -144,7 +144,7 @@ namespace adatbazisok_beadando.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(654, 290);
+            this.ClientSize = new System.Drawing.Size(650, 262);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.valutaListbox);
             this.Controls.Add(this.kuldes);

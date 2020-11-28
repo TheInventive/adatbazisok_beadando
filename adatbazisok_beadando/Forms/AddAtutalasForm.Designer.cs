@@ -38,7 +38,7 @@ namespace adatbazisok_beadando.Forms
             this.eredetszamlaSzamlaszama = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.kuldes = new System.Windows.Forms.Button();
             this.datum = new System.Windows.Forms.DateTimePicker();
             this.valuta = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -122,15 +122,15 @@ namespace adatbazisok_beadando.Forms
             this.label5.TabIndex = 10;
             this.label5.Text = "Eredetszámla számlaszáma";
             // 
-            // button1
+            // kuldes
             // 
-            this.button1.Location = new System.Drawing.Point(461, 344);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(221, 47);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Küldés";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.SendData);
+            this.kuldes.Location = new System.Drawing.Point(461, 344);
+            this.kuldes.Name = "kuldes";
+            this.kuldes.Size = new System.Drawing.Size(221, 47);
+            this.kuldes.TabIndex = 11;
+            this.kuldes.Text = "Küldés";
+            this.kuldes.UseVisualStyleBackColor = true;
+            this.kuldes.Click += new System.EventHandler(this.SendData);
             // 
             // datum
             // 
@@ -222,7 +222,7 @@ namespace adatbazisok_beadando.Forms
             this.Controls.Add(this.label6);
             this.Controls.Add(this.valuta);
             this.Controls.Add(this.datum);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.kuldes);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.eredetszamlaSzamlaszama);
@@ -251,7 +251,7 @@ namespace adatbazisok_beadando.Forms
         private System.Windows.Forms.TextBox eredetszamlaSzamlaszama;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button kuldes;
         private System.Windows.Forms.DateTimePicker datum;
         private System.Windows.Forms.TextBox valuta;
         private System.Windows.Forms.Label label6;

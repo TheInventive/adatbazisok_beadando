@@ -19,8 +19,7 @@ namespace adatbazisok_beadando.Forms
             InitializeComponent();
             kuldes.Visible = false;
             isModify = true;
-            if (array.Count != 6)
-            bankkartyaszam.Text = array[2];
+            if (array.Count != 6) return;
             szam = array[0];
             lejarat.Value = DateTime.Parse(array[1]);
             megerositoCod.Text = array[2];
@@ -38,7 +37,7 @@ namespace adatbazisok_beadando.Forms
             }
             var query = "INSERT INTO bankkártya " +
                 "VALUES ('"
-                + bankkartyaszam.Text + "','"
+                + kartyaszam.Text + "','"
                 + lejarat.Value.ToString("yyyy-MM-dd") + "','"
                 + megerositoCod.Text + "','"
                 + tipus.Text + "','"
@@ -48,12 +47,12 @@ namespace adatbazisok_beadando.Forms
 
             if (DatabaseAccess.ExecuteInsert(query))
             {
-                bankkartyaszam.Clear();
+                kartyaszam.Clear();
                 lejarat.ResetText();
                 megerositoCod.Clear();
                 tipus.Clear();
                 limit.Clear();
-                bankkartyaszam.Clear();
+                bankszamlaszam.Clear();
             }
         }
 
@@ -66,6 +65,7 @@ namespace adatbazisok_beadando.Forms
             {
                 bankszamaszamListbox.Items.Add(sz.Szamlaszam);
             }
+            kartyaszam.Text = szam;
         }
 
         private void BankszamaszamListbox_SelectedIndexChanged(object sender, EventArgs e)
@@ -75,7 +75,7 @@ namespace adatbazisok_beadando.Forms
 
         private void Modify()
         {
-            var query = $"UPDATE `bankkártya` SET `kártyaszám` = '{bankkartyaszam.Text}', " +
+            var query = $"UPDATE `bankkártya` SET `kártyaszám` = '{kartyaszam.Text}', " +
                 $"`lejárat` = '{lejarat.Value.ToString("yyyy-MM-dd")}', " +
                 $"`megerősítő kód` = '{megerositoCod.Text}', " +
                 $"`típus` = '{tipus.Text}', " +

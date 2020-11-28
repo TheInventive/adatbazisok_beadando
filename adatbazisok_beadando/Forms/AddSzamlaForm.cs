@@ -16,8 +16,9 @@ namespace adatbazisok_beadando.Forms
 
         public AddSzamlaForm(List<string> list)
         {
-            isModify = true;
             InitializeComponent();
+            kuldes.Visible = false;
+            isModify = true;
             if (list.Count != 4) return;
             szamlaszam.Text = list[0];
             szam = list[0];
