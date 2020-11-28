@@ -19,7 +19,7 @@ namespace adatbazisok_beadando
         {
             var sql = "SELECT * from átutalás";
             var reader = DatabaseAccess.ExcecuteRead(sql);
-            dataGridView1.InsertData(reader, MediaType.Atutalas);
+            mainGrid.InsertData(reader, MediaType.Atutalas);
             type = MediaType.Atutalas;
             ChangeText(DatabaseAccess.latestSQl);
         }
@@ -28,7 +28,7 @@ namespace adatbazisok_beadando
         {
             var sql = "SELECT * from ügyfél";
             var reader = DatabaseAccess.ExcecuteRead(sql);
-            dataGridView1.InsertData(reader, MediaType.Ugyfel);
+            mainGrid.InsertData(reader, MediaType.Ugyfel);
             type = MediaType.Ugyfel;
             ChangeText(DatabaseAccess.latestSQl);
         }
@@ -37,7 +37,7 @@ namespace adatbazisok_beadando
         {
             var sql = "SELECT * from számla";
             var reader = DatabaseAccess.ExcecuteRead(sql);
-            dataGridView1.InsertData(reader, MediaType.Szamla);
+            mainGrid.InsertData(reader, MediaType.Szamla);
             type = MediaType.Szamla;
             ChangeText(DatabaseAccess.latestSQl);
         }
@@ -46,8 +46,33 @@ namespace adatbazisok_beadando
         {
             var sql = "SELECT * from bankkártya";
             var reader = DatabaseAccess.ExcecuteRead(sql);
-            dataGridView1.InsertData(reader, MediaType.Bankkartya);
+            mainGrid.InsertData(reader, MediaType.Bankkartya);
             type = MediaType.Bankkartya;
+            ChangeText(DatabaseAccess.latestSQl);
+        }
+
+        private void ShowMeghtalmazasok(object sender, EventArgs e)
+        {
+            var sql = "SELECT `ügyfél`.`Megszólítás`,`ügyfél`.`Keresztnév`," +
+                "`ügyfél`.`Vezetéknév`,`meghatalmazott`.`meghatalmazott azonosító`," +
+                "`meghatalmazott`.`számlaszám` FROM `ügyfél`,`meghatalmazott` " +
+                "WHERE `ügyfél`.`Ügyfél azonosító` = `meghatalmazott`.`meghatalmazott azonosító`";
+            var reader = DatabaseAccess.ExcecuteRead(sql);
+            mainGrid.InsertData(reader, MediaType.Meghatalmazas);
+            type = MediaType.Meghatalmazas;
+            ChangeText(DatabaseAccess.latestSQl);
+        }
+
+
+        private void ShowTulajdonosok(object sender, EventArgs e)
+        {
+            var sql = "SELECT `ügyfél`.`Megszólítás`,`ügyfél`.`Keresztnév`," +
+                "`ügyfél`.`Vezetéknév`,`tulajdonos`.`ügyfél azonosító`," +
+                "`tulajdonos`.`számlaszám`, `tulajdonos`.`tulajdonrész` FROM `ügyfél`,`tulajdonos` " +
+                "WHERE `ügyfél`.`Ügyfél azonosító` = `tulajdonos`.`ügyfél azonosító`";
+            var reader = DatabaseAccess.ExcecuteRead(sql);
+            mainGrid.InsertData(reader, MediaType.Tulajdonos);
+            type = MediaType.Tulajdonos;
             ChangeText(DatabaseAccess.latestSQl);
         }
 
@@ -83,7 +108,7 @@ namespace adatbazisok_beadando
         {
             if (type != null)
             {
-                var data = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                var data = mainGrid.SelectedRows[0].Cells[0].Value.ToString();
                 ChangeText(DatabaseAccess.latestSQl);
                 UpdateForm();
             }
@@ -91,8 +116,8 @@ namespace adatbazisok_beadando
 
         private void ModositasButton_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count == 0) return;
-            var data = dataGridView1.SelectedRows[0].Cells;
+            if (mainGrid.SelectedRows.Count == 0) return;
+            var data = mainGrid.SelectedRows[0].Cells;
             var list = new List<string>();
             for (int i = 0; i < data.Count; i++)
             {
@@ -158,6 +183,11 @@ namespace adatbazisok_beadando
                 var lastText = ((TextBox)sender).Text.Split('\n');
                 ((TextBox)sender).Text = lastText[lastText.Length-2]+"\n";
             }
+        }
+
+        private void TranzakciokGrafikonMutatasa(object sender, EventArgs e)
+        {
+            new ChartForm().ShowDialog();
         }
     }
 }

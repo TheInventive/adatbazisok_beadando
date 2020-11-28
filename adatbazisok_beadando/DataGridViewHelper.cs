@@ -23,6 +23,12 @@ namespace adatbazisok_beadando
                 case MediaType.Ugyfel:
                     grid.DataSource = GetUgyfel(values);
                     break;
+                case MediaType.Meghatalmazas:
+                    grid.DataSource = GetMeghatalmazott(values);
+                    break;
+                case MediaType.Tulajdonos:
+                    grid.DataSource = GetTulajdonos(values);
+                    break;
             }
 
         }
@@ -73,5 +79,30 @@ namespace adatbazisok_beadando
             }
             return data;
         }
+
+        public static List<Meghatalmazas> GetMeghatalmazott(Dictionary<int, List<string>> values)
+        {
+            var data = new List<Meghatalmazas>();
+            if (values == null || values.Count == 0) return null;
+            for (int i = 0; i < values.Count; i++)
+            {
+                values.TryGetValue(i, out List<string> row);
+                data.Add(new Meghatalmazas(row));
+            }
+            return data;
+        }
+
+        public static List<Tulajdonos> GetTulajdonos(Dictionary<int, List<string>> values)
+        {
+            var data = new List<Tulajdonos>();
+            if (values == null || values.Count == 0) return null;
+            for (int i = 0; i < values.Count; i++)
+            {
+                values.TryGetValue(i, out List<string> row);
+                data.Add(new Tulajdonos(row));
+            }
+            return data;
+        }
+
     }
 }

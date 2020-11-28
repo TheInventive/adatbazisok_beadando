@@ -5,6 +5,8 @@
         Atutalas,
         Bankkartya,
         Szamla,
-        Ugyfel
+        Ugyfel,
+        Meghatalmazas,
+        Tulajdonos
     }
 }

@@ -111,7 +111,7 @@
     </Compile>
     <Compile Include="Model\Atutalas.cs" />
     <Compile Include="Model\Bankkartya.cs" />
-    <Compile Include="Model\Meghatalmazott.cs" />
+    <Compile Include="Model\Meghatalmazas.cs" />
     <Compile Include="Model\Szamla.cs" />
     <Compile Include="Model\Tulajdonos.cs" />
     <Compile Include="Model\Ugyfel.cs" />
