@@ -70,6 +70,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Osszvagyon.cs" />
+    <Compile Include="Model\Tulajdonosok.cs" />
     <Compile Include="Forms\AddAtutalasForm.cs">
       <SubType>Form</SubType>
     </Compile>

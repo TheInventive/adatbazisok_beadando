@@ -75,6 +75,31 @@ namespace adatbazisok_beadando
             ChangeText(DatabaseAccess.latestSQl);
         }
 
+        private void TulajdonosokSzámaSzámlánkéntToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var sql = "SELECT COUNT(*) AS tulajdonosok, " +
+                "`számla`.`Számlaszám` FROM `számla`,`tulajdonos` " +
+                "WHERE `tulajdonos`.`számlaszám` = `számla`.`Számlaszám` " +
+                "GROUP BY számlaszám ORDER BY tulajdonosok DESC";
+            var reader = DatabaseAccess.ExcecuteRead(sql);
+            mainGrid.InsertData(reader, MediaType.TulajdonosokSzama);
+            type = MediaType.TulajdonosokSzama;
+            ChangeText(DatabaseAccess.latestSQl);
+        }
+
+        private void ÜgyfelekÖsszvagyonaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var sql = "SELECT CONCAT(`ügyfél`.`Megszólítás`, ' ',`ügyfél`.`Keresztnév`, ' ',`ügyfél`.`Vezetéknév`) AS Név, " +
+                "SUM(`számla`.`Pénz` * `tulajdonos`.`tulajdonrész`) AS Összvagyon, `számla`.`Valuta` " +
+                "FROM `ügyfél`,`számla`,`tulajdonos` WHERE `ügyfél`.`Ügyfél azonosító` = `tulajdonos`.`ügyfél azonosító` " +
+                "AND `tulajdonos`.`számlaszám` = `számla`.`Számlaszám` " +
+                "GROUP BY Név ORDER BY Összvagyon DESC";
+            var reader = DatabaseAccess.ExcecuteRead(sql);
+            mainGrid.InsertData(reader, MediaType.UgyfelekOsszvagyona);
+            type = MediaType.UgyfelekOsszvagyona;
+            ChangeText(DatabaseAccess.latestSQl);
+        }
+
         private void AddAtutalas(object sender, EventArgs e)
         {
             new AddAtutalasForm().ShowDialog();
@@ -172,6 +197,16 @@ namespace adatbazisok_beadando
 
         private void ChangeText(string text)
         {
+            if (type == MediaType.TulajdonosokSzama || type ==  MediaType.UgyfelekOsszvagyona)
+            {
+                modositasButton.Enabled = false;
+                torlesButton.Enabled = false;
+            }
+            else
+            {
+                modositasButton.Enabled = true;
+                torlesButton.Enabled = true;
+            }
             sqlTextBox.Text += string.Format("Executed SQL: {0}" + Environment.NewLine, text);
         }
 

@@ -7,6 +7,8 @@
         Szamla,
         Ugyfel,
         Meghatalmazas,
-        Tulajdonos
+        Tulajdonos,
+        TulajdonosokSzama,
+        UgyfelekOsszvagyona
     }
 }

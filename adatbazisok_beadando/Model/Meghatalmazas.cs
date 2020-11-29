@@ -12,7 +12,7 @@ namespace adatbazisok_beadando.Model
         {
 
             UgyfelId = int.Parse(values[3]);
-            Nev = values[0]+" " + values[2] + values[1];
+            Nev = values[0] + " " + values[2] + " " + values[1];
             Szamlaszam = values[4];
         }
     }

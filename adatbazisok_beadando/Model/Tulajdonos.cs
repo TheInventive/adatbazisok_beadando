@@ -12,7 +12,7 @@ namespace adatbazisok_beadando.Model
         public Tulajdonos(List<string> values)
         {
             UgyfelAzonosito = int.Parse(values[3]);
-            Nev = values[0] + values[2] + values[1];
+            Nev = values[0] + " " + values[2] + " " + values[1];
             Szamlaszam = values[4];
             Tulajdonresz = double.Parse(values[5]);
         }

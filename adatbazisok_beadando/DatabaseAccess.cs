@@ -104,6 +104,14 @@ namespace adatbazisok_beadando
                         {
                             temp.Add(reader.GetDouble(i).ToString());
                         }
+                        else if (schema[i].DataTypeName == "BIGINT")
+                        {
+                            temp.Add(reader.GetInt64(i).ToString());
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ismeretlen adattípus!");
+                        }
                     }
                     result.Add(counter++, temp);
                 }

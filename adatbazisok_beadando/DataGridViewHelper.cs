@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace adatbazisok_beadando
 {
-    public static class DataGridViewHelper
+    public static partial class DataGridViewHelper
     {
         public static void InsertData(this DataGridView grid, Dictionary<int, List<string>> values, MediaType type)
         {
@@ -29,8 +29,15 @@ namespace adatbazisok_beadando
                 case MediaType.Tulajdonos:
                     grid.DataSource = GetTulajdonos(values);
                     break;
+                case MediaType.TulajdonosokSzama:
+                    grid.DataSource = GetTulajdonosokSzama(values);
+                    break;
+                case MediaType.UgyfelekOsszvagyona:
+                    grid.DataSource = GetUgyfelekOsszvagyona(values);
+                    break;
+                default:
+                    break;
             }
-
         }
 
         public static List<Ugyfel> GetUgyfel(Dictionary<int, List<string>> values)
@@ -104,5 +111,28 @@ namespace adatbazisok_beadando
             return data;
         }
 
+        private static List<Tulajdonosok> GetTulajdonosokSzama(Dictionary<int, List<string>> values)
+        {
+            var data = new List<Tulajdonosok>();
+            if (values == null || values.Count == 0) return null;
+            for (int i = 0; i < values.Count; i++)
+            {
+                values.TryGetValue(i, out List<string> row);
+                data.Add(new Tulajdonosok() {TulajdonosokSzama = int.Parse(row[0]), Szamlaszam = row[1] });
+            }
+            return data;
+        }
+
+        private static List<Osszvagyon> GetUgyfelekOsszvagyona(Dictionary<int, List<string>> values)
+        {
+            var data = new List<Osszvagyon>();
+            if (values == null || values.Count == 0) return null;
+            for (int i = 0; i < values.Count; i++)
+            {
+                values.TryGetValue(i, out List<string> row);
+                data.Add(new Osszvagyon() { Nev = row[0], Osszvagyona = double.Parse(row[1]), Valuta = row[2]});
+            }
+            return data;
+        }
     }
 }

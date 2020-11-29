@@ -37,6 +37,7 @@
             this.bankkártyákMutatásaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.meghatalmazásokMutatásaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tulajdonosokMutatásaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tulajdonosokSzámaSzámlánkéntToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adatokHozzáadásaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.átutalásHozzáadásaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ügyfélHozzáadásaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,6 +48,7 @@
             this.torlesButton = new System.Windows.Forms.Button();
             this.modositasButton = new System.Windows.Forms.Button();
             this.sqlTextBox = new System.Windows.Forms.TextBox();
+            this.ügyfelekÖsszvagyonaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.mainGrid)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -90,7 +92,9 @@
             this.számlákMutatásaToolStripMenuItem1,
             this.bankkártyákMutatásaToolStripMenuItem1,
             this.meghatalmazásokMutatásaToolStripMenuItem,
-            this.tulajdonosokMutatásaToolStripMenuItem});
+            this.tulajdonosokMutatásaToolStripMenuItem,
+            this.tulajdonosokSzámaSzámlánkéntToolStripMenuItem,
+            this.ügyfelekÖsszvagyonaToolStripMenuItem});
             this.átutalásokMutatásaToolStripMenuItem.Name = "átutalásokMutatásaToolStripMenuItem";
             this.átutalásokMutatásaToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.átutalásokMutatásaToolStripMenuItem.Text = "Adatok mutatása";
@@ -98,44 +102,51 @@
             // átutalásaokMutatásaToolStripMenuItem
             // 
             this.átutalásaokMutatásaToolStripMenuItem.Name = "átutalásaokMutatásaToolStripMenuItem";
-            this.átutalásaokMutatásaToolStripMenuItem.Size = new System.Drawing.Size(278, 26);
+            this.átutalásaokMutatásaToolStripMenuItem.Size = new System.Drawing.Size(313, 26);
             this.átutalásaokMutatásaToolStripMenuItem.Text = "Átutalásaok mutatása";
             this.átutalásaokMutatásaToolStripMenuItem.Click += new System.EventHandler(this.ShowAtutalasok);
             // 
             // ügyfelekMutatásaToolStripMenuItem1
             // 
             this.ügyfelekMutatásaToolStripMenuItem1.Name = "ügyfelekMutatásaToolStripMenuItem1";
-            this.ügyfelekMutatásaToolStripMenuItem1.Size = new System.Drawing.Size(278, 26);
+            this.ügyfelekMutatásaToolStripMenuItem1.Size = new System.Drawing.Size(313, 26);
             this.ügyfelekMutatásaToolStripMenuItem1.Text = "Ügyfelek mutatása";
             this.ügyfelekMutatásaToolStripMenuItem1.Click += new System.EventHandler(this.ShowUgyfelek);
             // 
             // számlákMutatásaToolStripMenuItem1
             // 
             this.számlákMutatásaToolStripMenuItem1.Name = "számlákMutatásaToolStripMenuItem1";
-            this.számlákMutatásaToolStripMenuItem1.Size = new System.Drawing.Size(278, 26);
+            this.számlákMutatásaToolStripMenuItem1.Size = new System.Drawing.Size(313, 26);
             this.számlákMutatásaToolStripMenuItem1.Text = "Számlák mutatása";
             this.számlákMutatásaToolStripMenuItem1.Click += new System.EventHandler(this.ShowSzamlak);
             // 
             // bankkártyákMutatásaToolStripMenuItem1
             // 
             this.bankkártyákMutatásaToolStripMenuItem1.Name = "bankkártyákMutatásaToolStripMenuItem1";
-            this.bankkártyákMutatásaToolStripMenuItem1.Size = new System.Drawing.Size(278, 26);
+            this.bankkártyákMutatásaToolStripMenuItem1.Size = new System.Drawing.Size(313, 26);
             this.bankkártyákMutatásaToolStripMenuItem1.Text = "Bankkártyák mutatása";
             this.bankkártyákMutatásaToolStripMenuItem1.Click += new System.EventHandler(this.ShowBankkartyak);
             // 
             // meghatalmazásokMutatásaToolStripMenuItem
             // 
             this.meghatalmazásokMutatásaToolStripMenuItem.Name = "meghatalmazásokMutatásaToolStripMenuItem";
-            this.meghatalmazásokMutatásaToolStripMenuItem.Size = new System.Drawing.Size(278, 26);
+            this.meghatalmazásokMutatásaToolStripMenuItem.Size = new System.Drawing.Size(313, 26);
             this.meghatalmazásokMutatásaToolStripMenuItem.Text = "Meghatalmazások mutatása";
             this.meghatalmazásokMutatásaToolStripMenuItem.Click += new System.EventHandler(this.ShowMeghtalmazasok);
             // 
             // tulajdonosokMutatásaToolStripMenuItem
             // 
             this.tulajdonosokMutatásaToolStripMenuItem.Name = "tulajdonosokMutatásaToolStripMenuItem";
-            this.tulajdonosokMutatásaToolStripMenuItem.Size = new System.Drawing.Size(278, 26);
+            this.tulajdonosokMutatásaToolStripMenuItem.Size = new System.Drawing.Size(313, 26);
             this.tulajdonosokMutatásaToolStripMenuItem.Text = "Tulajdonosok mutatása";
             this.tulajdonosokMutatásaToolStripMenuItem.Click += new System.EventHandler(this.ShowTulajdonosok);
+            // 
+            // tulajdonosokSzámaSzámlánkéntToolStripMenuItem
+            // 
+            this.tulajdonosokSzámaSzámlánkéntToolStripMenuItem.Name = "tulajdonosokSzámaSzámlánkéntToolStripMenuItem";
+            this.tulajdonosokSzámaSzámlánkéntToolStripMenuItem.Size = new System.Drawing.Size(313, 26);
+            this.tulajdonosokSzámaSzámlánkéntToolStripMenuItem.Text = "Tulajdonosok száma számlánként";
+            this.tulajdonosokSzámaSzámlánkéntToolStripMenuItem.Click += new System.EventHandler(this.TulajdonosokSzámaSzámlánkéntToolStripMenuItem_Click);
             // 
             // adatokHozzáadásaToolStripMenuItem
             // 
@@ -187,7 +198,7 @@
             // tranzakciókToolStripMenuItem
             // 
             this.tranzakciókToolStripMenuItem.Name = "tranzakciókToolStripMenuItem";
-            this.tranzakciókToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.tranzakciókToolStripMenuItem.Size = new System.Drawing.Size(162, 26);
             this.tranzakciókToolStripMenuItem.Text = "Átutalások";
             this.tranzakciókToolStripMenuItem.Click += new System.EventHandler(this.TranzakciokGrafikonMutatasa);
             // 
@@ -227,7 +238,14 @@
             this.sqlTextBox.TabIndex = 10;
             this.sqlTextBox.TextChanged += new System.EventHandler(this.SqlTextBox_TextChanged);
             // 
-            // Form1
+            // ügyfelekÖsszvagyonaToolStripMenuItem
+            // 
+            this.ügyfelekÖsszvagyonaToolStripMenuItem.Name = "ügyfelekÖsszvagyonaToolStripMenuItem";
+            this.ügyfelekÖsszvagyonaToolStripMenuItem.Size = new System.Drawing.Size(313, 26);
+            this.ügyfelekÖsszvagyonaToolStripMenuItem.Text = "Ügyfelek összvagyona";
+            this.ügyfelekÖsszvagyonaToolStripMenuItem.Click += new System.EventHandler(this.ÜgyfelekÖsszvagyonaToolStripMenuItem_Click);
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -240,7 +258,7 @@
             this.Controls.Add(this.mainGrid);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Bank";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.mainGrid)).EndInit();
@@ -271,6 +289,8 @@
         private System.Windows.Forms.TextBox sqlTextBox;
         private System.Windows.Forms.ToolStripMenuItem meghatalmazásokMutatásaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tulajdonosokMutatásaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tulajdonosokSzámaSzámlánkéntToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ügyfelekÖsszvagyonaToolStripMenuItem;
     }
 }
 
