@@ -9,7 +9,7 @@ namespace adatbazisok_beadando
     public static class DatabaseAccess
     {
         public static string latestSQl = "";
-        private const string connetionString = @"datasource=127.0.0.1;port=3306;username=admin;password=WXiqIfzpwO8XHMDK;database=bank;";
+        private const string connetionString = @"datasource=127.0.0.1;port=3306;username=root;database=bank;";
 
         private static MySqlConnection CreateConnection()
         {
